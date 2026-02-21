@@ -1,0 +1,436 @@
+@import "tailwindcss";
+
+/* ========================================
+   DARK MODE CONFIGURATION FOR TAILWIND CSS 4
+   ======================================== */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ========================================
+   CSS VARIABLES - THEME TOKENS
+   ======================================== */
+:root {
+  /* Light Mode (Awakened Mode) */
+  --background: #f5f8f8;
+  --background-dark: #f5f8f8;
+  --foreground: #0f172a;
+  --panel-dark: #ffffff;
+  --system-blue: #e2e8f0;
+  --primary: #3b82f6;
+  --secondary: #8b5cf6;
+  --border-color: rgba(59, 130, 246, 0.2);
+  --text-muted: #475569;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --glow-opacity: 0;
+  --scanline-opacity: 0;
+
+  /* Dynamic TOC Component Variables */
+  --d-bg: 0 0% 100%;
+  --d-muted: 0 0% 90%;
+  --d-fg: 0 0% 0%;
+  --d-border: 0 0% 90%;
+  --d-sheet: 0 0% 98%;
+}
+
+.dark {
+  /* Dark Mode (Dungeon Mode) */
+  --background: #050b14;
+  --background-dark: #050b14;
+  --foreground: #ffffff;
+  --panel-dark: #101e23;
+  --system-blue: #223f49;
+  --primary: #0db9f2;
+  --secondary: #9d4edd;
+  --border-color: rgba(13, 185, 242, 0.2);
+  --text-muted: #9ca3af;
+  --card-bg: rgba(16, 30, 35, 0.7);
+  --glow-opacity: 1;
+  --scanline-opacity: 0.15;
+}
+
+/* ========================================
+   TAILWIND THEME INTEGRATION
+   ======================================== */
+@theme inline {
+  --color-background: var(--background);
+  --color-background-dark: var(--background-dark);
+  --color-foreground: var(--foreground);
+  --color-panel-dark: var(--panel-dark);
+  --color-system-blue: var(--system-blue);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-border-color: var(--border-color);
+  --color-text-muted: var(--text-muted);
+  --color-card-bg: var(--card-bg);
+
+  /* Dynamic TOC Component Colors */
+  --color-d-bg: hsl(var(--d-bg));
+  --color-d-fg: hsl(var(--d-fg));
+  --color-d-border: hsl(var(--d-border));
+  --color-d-sheet: hsl(var(--d-sheet));
+  --color-d-muted: hsl(var(--d-muted));
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --shadow-neon:
+    0 0 10px rgba(13, 185, 242, 0.5), 0 0 20px rgba(13, 185, 242, 0.3);
+  --shadow-neon-purple:
+    0 0 10px rgba(157, 78, 221, 0.5), 0 0 20px rgba(157, 78, 221, 0.3);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--primary);
+  color: #000;
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--system-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Hide scrollbar on mobile devices */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
+
+  /* For Firefox */
+  html {
+    scrollbar-width: none;
+  }
+
+  /* For IE/Edge */
+  body {
+    -ms-overflow-style: none;
+  }
+}
+
+/* ========================================
+   GRID BACKGROUND
+   ======================================== */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+}
+
+.dark .bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(13, 185, 242, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13, 185, 242, 0.05) 1px, transparent 1px);
+}
+
+/* ========================================
+   HOLOGRAPHIC CARD EFFECT
+   ======================================== */
+.holo-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.holo-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .holo-card {
+  background: rgba(16, 30, 35, 0.7);
+  border: 1px solid rgba(13, 185, 242, 0.2);
+  box-shadow: none;
+}
+
+.dark .holo-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(13, 185, 242, 0.1),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.dark .holo-card:hover::before {
+  left: 100%;
+  transition: 0.5s;
+}
+
+.dark .holo-card:hover {
+  border-color: rgba(13, 185, 242, 0.6);
+  box-shadow: 0 0 15px rgba(13, 185, 242, 0.2);
+}
+
+/* ========================================
+   TEXT GLOW (Dark Mode Only)
+   ======================================== */
+.dark .text-glow {
+  text-shadow: 0 0 5px rgba(13, 185, 242, 0.5);
+}
+
+/* ========================================
+   CRT SCANLINE OVERLAY
+   ======================================== */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 51%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+}
+
+.dark .scanline {
+  opacity: 0.15;
+}
+
+/* ========================================
+   NEON GLOW SHADOWS (Dark Mode Only)
+   ======================================== */
+.dark .shadow-neon {
+  box-shadow:
+    0 0 10px rgba(13, 185, 242, 0.5),
+    0 0 20px rgba(13, 185, 242, 0.3);
+}
+
+.dark .shadow-neon-purple {
+  box-shadow:
+    0 0 10px rgba(157, 78, 221, 0.5),
+    0 0 20px rgba(157, 78, 221, 0.3);
+}
+
+/* ========================================
+   PROGRESS BAR TEXTURE
+   ======================================== */
+.bar-texture {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xIDRoMnYxSDF6IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMikiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==");
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* ========================================
+   LIGHT MODE OVERRIDES
+   ======================================== */
+.bg-background-dark {
+  background: var(--background);
+}
+
+.dark .bg-background-dark {
+  background: #050b14;
+}
+
+/* Status bar backgrounds in light mode */
+.bg-system-blue\/30 {
+  background: rgba(226, 232, 240, 0.5);
+}
+
+.dark .bg-system-blue\/30 {
+  background: rgba(34, 63, 73, 0.3);
+}
+
+.bg-system-blue\/50 {
+  background: rgba(226, 232, 240, 0.7);
+}
+
+.dark .bg-system-blue\/50 {
+  background: rgba(34, 63, 73, 0.5);
+}
+
+/* White opacity backgrounds */
+.bg-white\/5 {
+  background: rgba(241, 245, 249, 0.8);
+}
+
+.dark .bg-white\/5 {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.bg-white\/10 {
+  background: rgba(241, 245, 249, 0.9);
+}
+
+.dark .bg-white\/10 {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Border colors */
+.border-white\/10 {
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.dark .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.border-white\/5 {
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.dark .border-white\/5 {
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Text colors in light mode */
+.text-gray-300 {
+  color: #374151;
+}
+
+.dark .text-gray-300 {
+  color: #d1d5db;
+}
+
+.text-gray-400 {
+  color: #64748b;
+}
+
+.dark .text-gray-400 {
+  color: #9ca3af;
+}
+
+.text-gray-500 {
+  color: #475569;
+}
+
+.dark .text-gray-500 {
+  color: #6b7280;
+}
+
+.text-gray-600 {
+  color: #334155;
+}
+
+.dark .text-gray-600 {
+  color: #4b5563;
+}
+
+/* Gray backgrounds */
+.bg-gray-700 {
+  background: #e2e8f0;
+}
+
+.dark .bg-gray-700 {
+  background: #374151;
+}
+
+.bg-gray-800 {
+  background: #e2e8f0;
+}
+
+.dark .bg-gray-800 {
+  background: #1f2937;
+}
+
+/* ========================================
+   DOT BACKGROUND (Dynamic TOC Demo)
+   ======================================== */
+.dot-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.dark .dot-bg {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
