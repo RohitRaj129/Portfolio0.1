@@ -1,11 +1,10 @@
 import QuestLog from "./sections/quests/QuestLog";
 import SkillsGrid from "./sections/skills/SkillsGrid";
-import ArtifactVault from "./sections/inventory/ArtifactVault";
+import ArtifactVault from "./sections/projects/ArtifactVault";
 import SystemFooter from "./sections/footer/SystemFooter";
 
 import { quests } from "@/data/quests";
 import { skills } from "@/data/skills";
-import { artifacts } from "@/data/artifacts";
 import PortfolioBento from "@/components/PortfolioBento";
 import ProfileCard from "./sections/hero/ProfileCard";
 import StatsCard from "./sections/hero/StatsCard";
@@ -35,7 +34,7 @@ export default function Home() {
               enableMagnetism={false}
               clickEffect
               spotlightRadius={400}
-              particleCount={12}
+              particleCount={15}
               glowColor="132, 0, 255"
               disableAnimations={false}
             >
@@ -47,11 +46,12 @@ export default function Home() {
 
               {/* Introduction Section */}
               <Intro />
-              {/* Skills Section */}
-              <SkillsGrid skills={skills} />
 
               {/* Artifact Vault Section */}
-              <ArtifactVault artifacts={artifacts} />
+              <ArtifactVault />
+
+              {/* Skills Section */}
+              <SkillsGrid skills={skills} />
             </PortfolioBento>
           </BlurFade>
         </main>

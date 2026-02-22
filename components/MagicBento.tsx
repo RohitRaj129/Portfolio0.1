@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
 import StatsCard from "@/app/sections/hero/StatsCard";
 import Intro from "@/app/sections/introduction/Intro";
-import ArtifactVault from "@/app/sections/inventory/ArtifactVault";
+import ArtifactVault from "@/app/sections/projects/ArtifactVault";
 import SkillsInventory from "@/app/sections/skills/SkillsInventory";
 import AboutMe from "@/app/sections/About/AboutMe";
 import GithubActivity from "@/app/sections/footer/GithubActivity";

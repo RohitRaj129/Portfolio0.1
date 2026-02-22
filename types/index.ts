@@ -11,6 +11,24 @@ export interface Stat {
   colorClass: string;
 }
 
+// Artifact Types
+export type Tech = {
+  name: string;
+  icon: string; // path to the png
+};
+
+export type Project = {
+  id: number;
+  name: string;
+  description: string;
+  demoVideo: string;
+  thumbnail: string;
+  liveUrl: string;
+  githubUrl: string;
+  technologies: Tech[];
+  status: "working" | "building" | "completed";
+};
+
 //Profile Card Types
 export interface Profile {
   name: string;

@@ -1,32 +1,75 @@
-import type { Artifact } from "@/types";
+import { Project } from "@/types";
 
-export const artifacts: Artifact[] = [
+export const projects: Project[] = [
   {
     id: 1,
-    title: "FINANCE DASHBOARD",
+    name: "TubeBoost",
     description:
-      "A high-performance analytics platform built with Next.js and Tremor. Handles real-time websocket data for stock visualization.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDuvpQ_LOa6XrsDcW_Rcr9-jjBtYtFn76Z5jlMU6DuO0bvPa-FI7pxkxqT7PcX-Mljzre-naARG0uuSMnLxEbioklW3LWlPjBATjFpaHVPMtme_ZxzeA9RpE3fjO2Q3b3SkMdP0PxxJuXxCG7W0f5-1uDWIa9qfIdI4XiS5te2yVfVkUZN46hIj_-y6w3rZSTvACTF95dJUWkijHWUBNDXtHCt3vtj9w7KY3lG0Xb-Hh9IEsWz_AZGWH35d0G87Vn00VHCgOB3Ial4",
-    imageAlt:
-      "Screenshot of a sleek dashboard interface with data visualization charts",
-    rarity: "MYTHICAL",
-    powerLevel: 9200,
-    demoUrl: "#",
-    codeUrl: "#",
+      "An AI-powered creative studio that turns rough sketches into production-ready UI components using diffusion models.",
+    demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    liveUrl: "#",
+    githubUrl: "#",
+    technologies: [
+      { name: "React", icon: "/assets/react.png" },
+      { name: "Python", icon: "/assets/python.png" },
+      { name: "TensorFlow", icon: "/assets/tensorflow.png" },
+      { name: "FastAPI", icon: "/assets/fastapi.png" },
+      { name: "Docker", icon: "/assets/docker.png" },
+      { name: "Redis", icon: "/assets/redis.png" },
+      { name: "PostgreSQL", icon: "/assets/postgresql.png" },
+    ],
+    status: "working",
   },
   {
     id: 2,
-    title: "AI CONTENT GEN",
+    name: "VaultSync",
     description:
-      "SaaS application utilizing OpenAI's GPT-4 API to generate marketing copy. Features a custom rich-text editor and payment integration.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCUPbdbco0c_eSFCqWdWHJipr4lPhqvar4mMxguVy5Kweq8CQcSEVnSi3_hL1vyCTCPbMOEVhYBR9duhf3X3pfEIoMowMuq2QPQjEQFXmJ5z2Kc8TJe38mFVdvSISpbXsFik6YF520kXTjMXm_vh72UJ13Ke2FMgpIIRDccctbAycT2U9uTL2p6YsQbFz-PkjyjJH2f3s-1Or_4CLFeLjSjvedsC5tcRPFc4xBIoooppjdwVP0lXxbl5xhA6r7_dY8OWdcDBG2cd_w",
-    imageAlt:
-      "Abstract representation of an AI chatbot interface with glowing nodes",
-    rarity: "LEGENDARY",
-    powerLevel: 8500,
-    demoUrl: "#",
-    codeUrl: "#",
+      "Real-time collaborative code editor with version control, live cursors, and conflict-free merging built on CRDTs.",
+    demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
+    liveUrl: "#",
+    githubUrl: "#",
+    technologies: [
+      { name: "TypeScript", icon: "/assets/typescript.png" },
+      { name: "Node.js", icon: "/assets/nodejs.png" },
+      { name: "MongoDB", icon: "/assets/mongodb.png" },
+      { name: "Socket.io", icon: "/assets/socketio.png" },
+    ],
+    status: "building",
+  },
+  {
+    id: 3,
+    name: "MotionForge",
+    description:
+      "A visual animation timeline editor that exports production-ready Framer Motion and GSAP code from drag-and-drop sequences.",
+    demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80",
+    liveUrl: "#",
+    githubUrl: "#",
+    technologies: [
+      { name: "React", icon: "/assets/react.png" },
+      { name: "GSAP", icon: "/assets/gsap.png" },
+    ],
+    status: "working",
+  },
+  {
+    id: 4,
+    name: "DataWeave",
+    description:
+      "Schema-first data pipeline builder with a node-graph UI. Drag transformations, preview results live, and deploy to cloud.",
+    demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&q=80",
+    liveUrl: "#",
+    githubUrl: "#",
+    technologies: [
+      { name: "Next.js", icon: "/assets/nextjs.png" },
+      { name: "Kubernetes", icon: "/assets/kubernetes.png" },
+    ],
+    status: "building",
   },
 ];
