@@ -1,5 +1,20 @@
 "use client";
+import Splash3dButton from "@/components/3d-splash-button";
 import { RippleButton } from "@/components/ui/ripple-button";
+import {
+  FileText,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  Send,
+} from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { BsTwitterX } from "react-icons/bs";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import React from "react";
@@ -44,9 +59,76 @@ function Intro({}: Props) {
               design.
             </p>
           </div>
-          <div>
-            <Link href="/projects">
-              <RippleButton>View Projects</RippleButton>
+          <div className="flex gap-3">
+            <Link href="#">
+              <Splash3dButton className="gap-1">
+                <FileText className="p-1" />
+                Resume/CV
+              </Splash3dButton>
+            </Link>
+            <Link href="#">
+              <Splash3dButton className="gap-1">
+                <Send className="p-1" />
+                Get in touch
+              </Splash3dButton>
+            </Link>
+          </div>
+          <div className="mt-2 flex gap-2">
+            <Link href={"https://github.com/RohitRaj129"} target="_blank">
+              <Tooltip>
+                <TooltipTrigger className="cursor-pointer">
+                  <Github />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Github</p>
+                </TooltipContent>
+              </Tooltip>
+            </Link>
+            <Link
+              href={"https://www.linkedin.com/in/rohit-raj-6ba7772b8/"}
+              target="_blank"
+            >
+              <Tooltip>
+                <TooltipTrigger className="cursor-pointer">
+                  <Linkedin />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Linkedin</p>
+                </TooltipContent>
+              </Tooltip>
+            </Link>
+            <Link href={"https://x.com/RohitRaj289"} target="_blank">
+              <Tooltip>
+                <TooltipTrigger className="cursor-pointer">
+                  <BsTwitterX className="size-6" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>X</p>
+                </TooltipContent>
+              </Tooltip>
+            </Link>
+            <Link href={"mailto:rohitraj289@gmail.com"} target="_blank">
+              <Tooltip>
+                <TooltipTrigger className="cursor-pointer">
+                  <Mail />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Email</p>
+                </TooltipContent>
+              </Tooltip>
+            </Link>
+            <Link
+              href={"https://www.instagram.com/raj_rohit_19/"}
+              target="_blank"
+            >
+              <Tooltip>
+                <TooltipTrigger className="cursor-pointer">
+                  <Instagram />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Instagram</p>
+                </TooltipContent>
+              </Tooltip>
             </Link>
           </div>
         </div>

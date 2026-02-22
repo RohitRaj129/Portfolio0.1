@@ -12,6 +12,7 @@ import StatsCard from "./sections/hero/StatsCard";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import PortfolioTOC from "@/components/portfolio-toc";
 import Intro from "./sections/introduction/Intro";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 export default function Home() {
   return (
@@ -21,39 +22,38 @@ export default function Home() {
         <AnimatedThemeToggler />
       </div>
 
-      {/* CRT Scanline Overlay */}
-      <div className="scanline"></div>
-
       {/* Main Wrapper with Grid Background */}
       <div>
         {/* Main Content */}
         <main className="grow flex flex-col items-center w-full px-4 sm:px-6 lg:px-8 py-8 gap-12 max-w-7xl mx-auto">
-          <PortfolioBento
-            enableStars
-            enableSpotlight
-            enableBorderGlow={true}
-            enableTilt={false}
-            enableMagnetism={false}
-            clickEffect
-            spotlightRadius={400}
-            particleCount={12}
-            glowColor="132, 0, 255"
-            disableAnimations={false}
-          >
-            {/* Player Status Section */}
-            <ProfileCard />
+          <BlurFade delay={0.25}>
+            <PortfolioBento
+              enableStars
+              enableSpotlight
+              enableBorderGlow={true}
+              enableTilt={false}
+              enableMagnetism={false}
+              clickEffect
+              spotlightRadius={400}
+              particleCount={12}
+              glowColor="132, 0, 255"
+              disableAnimations={false}
+            >
+              {/* Player Status Section */}
+              <ProfileCard />
 
-            {/* Quest Log Section */}
-            <StatsCard />
+              {/* Quest Log Section */}
+              <StatsCard />
 
-            {/* Introduction Section */}
-            <Intro />
-            {/* Skills Section */}
-            <SkillsGrid skills={skills} />
+              {/* Introduction Section */}
+              <Intro />
+              {/* Skills Section */}
+              <SkillsGrid skills={skills} />
 
-            {/* Artifact Vault Section */}
-            <ArtifactVault artifacts={artifacts} />
-          </PortfolioBento>
+              {/* Artifact Vault Section */}
+              <ArtifactVault artifacts={artifacts} />
+            </PortfolioBento>
+          </BlurFade>
         </main>
 
         {/* Footer */}

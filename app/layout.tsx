@@ -2,6 +2,7 @@ import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./providers/theme-provider";
 import type { Metadata } from "next";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body
         className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-display antialiased min-h-screen flex flex-col overflow-x-hidden`}
+        suppressHydrationWarning
       >
         <ThemeProvider>
           {/* Dark theme background */}
@@ -66,7 +68,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               }}
             />
             <div className="relative z-10 flex flex-col min-h-screen">
-              {children}
+              {<TooltipProvider>{children}</TooltipProvider>}
             </div>
           </div>
 
@@ -85,7 +87,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               }}
             />
             <div className="relative z-10 flex flex-col min-h-screen">
-              {children}
+              <TooltipProvider>{children}</TooltipProvider>
             </div>
           </div>
         </ThemeProvider>
