@@ -76,6 +76,16 @@
     0 0 10px rgba(13, 185, 242, 0.5), 0 0 20px rgba(13, 185, 242, 0.3);
   --shadow-neon-purple:
     0 0 10px rgba(157, 78, 221, 0.5), 0 0 20px rgba(157, 78, 221, 0.3);
+  --animate-rippling: rippling var(--duration) ease-out;
+  @keyframes rippling {
+  0% {
+    opacity: 1;
+    }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    }
+  }
 }
 
 /* ========================================

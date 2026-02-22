@@ -11,6 +11,7 @@ import ProfileCard from "./sections/hero/ProfileCard";
 import StatsCard from "./sections/hero/StatsCard";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import PortfolioTOC from "@/components/portfolio-toc";
+import Intro from "./sections/introduction/Intro";
 
 export default function Home() {
   return (
@@ -45,6 +46,8 @@ export default function Home() {
             {/* Quest Log Section */}
             <StatsCard />
 
+            {/* Introduction Section */}
+            <Intro />
             {/* Skills Section */}
             <SkillsGrid skills={skills} />
 
