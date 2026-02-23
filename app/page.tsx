@@ -12,6 +12,9 @@ import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import PortfolioTOC from "@/components/portfolio-toc";
 import Intro from "./sections/introduction/Intro";
 import { BlurFade } from "@/components/ui/blur-fade";
+import AboutMe from "./sections/About/AboutMe";
+import GithubActivity from "./sections/footer/GithubActivity";
+import Quote from "./sections/footer/Quote";
 
 export default function Home() {
   return (
@@ -52,6 +55,15 @@ export default function Home() {
 
               {/* Skills Section */}
               <SkillsGrid skills={skills} />
+
+              {/* About Me Section  */}
+              <AboutMe />
+
+              {/* Github HitMap  */}
+              <GithubActivity />
+
+              {/* Quote or fun easter egg can go here! Maybe a random quote generator or a hidden mini-game trigger? */}
+              <Quote />
             </PortfolioBento>
           </BlurFade>
         </main>
