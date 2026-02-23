@@ -257,14 +257,14 @@ export default function PortfolioBento({
     /* ── Tablet (600px+) ── */
     @media (min-width: 600px) {
       .portfolio-bento-grid {
-        grid-template-columns: repeat(2, 1fr);
+       grid-template-columns: 3fr 2fr;
         gap: 1rem;
         padding: 0 1.5rem;
       }
 
-      /* Card 1 and 2 — side by side */
-      .portfolio-bento-card:nth-child(1) { grid-column: span 1; min-height: 300px; }
-      .portfolio-bento-card:nth-child(2) { grid-column: span 1; min-height: 300px; }
+      /* Card 1 and 2 — 3:2 ratio */
+.portfolio-bento-card:nth-child(1) { grid-column: span 1; min-height: 300px; }
+.portfolio-bento-card:nth-child(2) { grid-column: span 1; min-height: 300px; }
 
       /* All remaining — full width */
       .portfolio-bento-card:nth-child(n+3) { grid-column: span 2; min-height: 250px; }
@@ -287,6 +287,7 @@ export default function PortfolioBento({
     /* ── Desktop (1024px+) ── */
     @media (min-width: 1024px) {
       .portfolio-bento-grid {
+      grid-template-columns: 3fr 2fr;
         gap: 1.25rem;
         padding: 0 2rem;
       }
