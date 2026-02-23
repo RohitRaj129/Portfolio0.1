@@ -138,7 +138,7 @@ export default function SkillsInventory({ isDark }: SkillsInventoryProps) {
 
         .ski-sidebar-label {
           font-family: 'Syne', sans-serif;
-          font-size: 9px;
+          font-size: 25px;
           font-weight: 600;
           letter-spacing: 2px;
           text-transform: uppercase;
@@ -154,7 +154,7 @@ export default function SkillsInventory({ isDark }: SkillsInventoryProps) {
           border: 1px solid transparent;
           background: transparent;
           font-family: 'Syne', sans-serif;
-          font-size: 13px;
+          font-size: 20px;
           font-weight: 600;
           color: ${t.btnColor};
           cursor: pointer;

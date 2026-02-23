@@ -67,7 +67,7 @@ function Intro({}: Props) {
               </Splash3dButton>
             </Link>
             <Link href="#">
-              <Splash3dButton className="gap-1">
+              <Splash3dButton>
                 <Send className="p-1" />
                 Get in touch
               </Splash3dButton>
