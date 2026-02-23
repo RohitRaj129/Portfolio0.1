@@ -11,8 +11,8 @@ export default function SystemFooter() {
   ];
 
   return (
-    <footer className="w-full border-t border-primary/20 bg-background-dark/95 py-6 mt-8">
-      <div className="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="w-full border-t border-primary/20 bg-background-dark/95 py-6 mt-8 mb-20">
+      <div className="max-w-300 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Copyright */}
         <div className="flex items-center gap-2 text-text-muted text-sm">
           <span className="material-symbols-outlined text-base">copyright</span>
