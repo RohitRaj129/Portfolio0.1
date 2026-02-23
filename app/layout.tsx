@@ -17,17 +17,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "System V2.0 - Dungeon Portfolio",
-  description:
-    "A cyberpunk-inspired developer portfolio with Solo Leveling System UI aesthetics",
-  keywords: [
-    "developer",
-    "portfolio",
-    "react",
-    "next.js",
-    "cyberpunk",
-    "dark mode",
-  ],
+  title: "Rohit Raj",
+  description: "A developer portfolio with Solo Leveling System UI aesthetics",
+  keywords: ["developer", "portfolio", "react", "next.js", "dark mode"],
 };
 
 interface RootLayoutProps {
