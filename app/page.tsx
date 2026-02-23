@@ -1,9 +1,6 @@
-import QuestLog from "./sections/quests/QuestLog";
 import SkillsGrid from "./sections/skills/SkillsGrid";
 import ArtifactVault from "./sections/projects/ArtifactVault";
 import SystemFooter from "./sections/footer/SystemFooter";
-
-import { quests } from "@/data/quests";
 import { skills } from "@/data/skills";
 import PortfolioBento from "@/components/PortfolioBento";
 import ProfileCard from "./sections/hero/ProfileCard";
@@ -54,7 +51,7 @@ export default function Home() {
               <ArtifactVault />
 
               {/* Skills Section */}
-              <SkillsGrid skills={skills} />
+              <SkillsGrid />
 
               {/* About Me Section  */}
               <AboutMe />

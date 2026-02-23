@@ -1,29 +1,97 @@
-import type { Skill } from "@/types";
-import SkillCard from "./SkillCard";
+"use client";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import SkillsInventory from "./SkillCard";
 
-interface SkillsGridProps {
-  skills: Skill[];
-}
+const skillsData = {
+  Core: {
+    desc: "Foundational CS concepts & system thinking.",
+    skills: [
+      "Data Structures",
+      "Algorithms",
+      "System Design",
+      "OOP Principles",
+      "Design Patterns",
+      "Complexity Analysis",
+    ],
+  },
+  Frontend: {
+    desc: "Crafting fast, beautiful interfaces.",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Figma",
+      "Storybook",
+      "Vite",
+    ],
+  },
+  Backend: {
+    desc: "APIs, databases, and server architecture.",
+    skills: [
+      "Node.js",
+      "Express",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "GraphQL",
+      "REST APIs",
+    ],
+  },
+  Tools: {
+    desc: "Dev workflows & infrastructure.",
+    skills: [
+      "Git",
+      "GitHub Actions",
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "Bash",
+      "AWS",
+      "Vercel",
+      "Postman",
+    ],
+  },
+  Languages: {
+    desc: "Coding and spoken languages.",
+    skills: ["JavaScript", "TypeScript", "Python", "SQL", "English", "Hindi"],
+  },
+};
 
-export default function SkillsGrid({ skills }: SkillsGridProps) {
+export default function SkillsGrid() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [selected, setSelected] = useState<keyof typeof skillsData>("Core");
+  const data = skillsData[selected];
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const isDark = theme === "dark";
+
   return (
-    <section id="skills" className="w-full flex flex-col gap-6">
-      {/* Section Header */}
-      <div className="flex items-center gap-3 border-b border-primary/30 pb-2 mb-2">
-        <span className="material-symbols-outlined text-primary text-3xl">
-          bolt
-        </span>
-        <h2 className="text-2xl font-bold text-foreground tracking-widest">
-          UNLOCKED SKILLS
-        </h2>
+    <div className="w-full h-full">
+      {/* OUTER FRAME */}
+      <div className="bg-[#521786] p-2 shadow-2xl rounded-3xl w-full h-full">
+        {/* Inner Frame */}
+        <div
+          className="p-4 md:p-8 flex flex-col gap-4 md:gap-6 items-start w-full h-full rounded-2xl"
+          style={{
+            background: isDark
+              ? "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)"
+              : "radial-gradient(125% 125% at 50% 90%, #fff 40%, #7c3aed 100%)",
+          }}
+        >
+          <SkillsInventory isDark={isDark} />
+        </div>
       </div>
-
-      {/* Skills Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {skills.map((skill) => (
-          <SkillCard key={skill.id} skill={skill} />
-        ))}
-      </div>
-    </section>
+    </div>
   );
 }
