@@ -180,7 +180,7 @@ export default function AboutSection() {
         </p>
 
         {/* Tech stack pills */}
-        <div className="flex flex-wrap gap-2 pt-1">
+        <div className="flex flex-wrap gap-2 pt-1 mb-1.5">
           {["TypeScript", "Next.js", "PostgreSQL", "AI/ML", "Full-Stack"].map(
             (tech) => (
               <span

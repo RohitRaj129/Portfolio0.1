@@ -229,37 +229,91 @@ export default function PortfolioBento({
       --border-color: rgba(132, 0, 255, 0.2);
     }
 
+    /* ── Base (Mobile first) ── */
     .portfolio-bento-grid {
       display: grid;
-      gap: 1rem;
+      gap: 0.75rem;
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Card 1 and 2 — side by side */
-    .portfolio-bento-card:nth-child(1) { grid-column: span 1; }
-    .portfolio-bento-card:nth-child(2) { grid-column: span 1; }
-
-    /* All remaining cards — full width */
-    .portfolio-bento-card:nth-child(n+3) { grid-column: span 2; }
-
-    /* Mobile — everything stacks */
-    @media (max-width: 767px) {
-      .portfolio-bento-grid {
-        grid-template-columns: 1fr;
-      }
-      .portfolio-bento-card:nth-child(n) {
-        grid-column: span 1;
-      }
+      padding: 0 1rem;
+      grid-template-columns: 1fr;
     }
 
     .portfolio-bento-card {
       position: relative;
       border-radius: 20px;
       overflow: visible;
-      min-height: 300px;
+      min-height: 200px;
+      width: 100%;
+    }
+
+    /* Mobile — all cards stack */
+    .portfolio-bento-card:nth-child(n) {
+      grid-column: span 1;
+      min-height: 200px;
+    }
+
+    /* ── Tablet (600px+) ── */
+    @media (min-width: 600px) {
+      .portfolio-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0 1.5rem;
+      }
+
+      /* Card 1 and 2 — side by side */
+      .portfolio-bento-card:nth-child(1) { grid-column: span 1; min-height: 300px; }
+      .portfolio-bento-card:nth-child(2) { grid-column: span 1; min-height: 300px; }
+
+      /* All remaining — full width */
+      .portfolio-bento-card:nth-child(n+3) { grid-column: span 2; min-height: 250px; }
+
+      /* Artifacts Vault — taller */
+      .portfolio-bento-card:nth-child(4) { min-height: 500px; }
+
+      /* Skills Inventory — taller */
+      .portfolio-bento-card:nth-child(5) { min-height: 400px; }
+
+      /* Quote — smaller and centered */
+      .portfolio-bento-card:nth-child(8) {
+        grid-column: span 2;
+        width: 70%;
+        margin: 0 auto;
+        min-height: 120px;
+      }
+    }
+
+    /* ── Desktop (1024px+) ── */
+    @media (min-width: 1024px) {
+      .portfolio-bento-grid {
+        gap: 1.25rem;
+        padding: 0 2rem;
+      }
+
+      .portfolio-bento-card:nth-child(1) { min-height: 350px; }
+      .portfolio-bento-card:nth-child(2) { min-height: 350px; }
+      .portfolio-bento-card:nth-child(3) { min-height: 200px; }
+      .portfolio-bento-card:nth-child(4) { min-height: 600px; }
+      .portfolio-bento-card:nth-child(5) { min-height: 450px; }
+      .portfolio-bento-card:nth-child(6) { min-height: 300px; }
+      .portfolio-bento-card:nth-child(7) { min-height: 300px; }
+
+      /* Quote — smaller and centered */
+      .portfolio-bento-card:nth-child(8) {
+        grid-column: span 2;
+        width: 60%;
+        margin: 0 auto;
+        min-height: 120px;
+      }
+    }
+
+    /* ── Large Desktop (1280px+) ── */
+    @media (min-width: 1280px) {
+      .portfolio-bento-grid {
+        gap: 1.5rem;
+        padding: 0;
+      }
     }
 
     ${
