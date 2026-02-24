@@ -46,10 +46,10 @@ export default function ProfileCard() {
   return (
     <div className="w-full h-full">
       {/* OUTER FRAME */}
-      <div className="bg-[#521786] p-1 md:p-0 shadow-2xl rounded-2xl w-full h-full">
+      <div className="bg-[#521786] p-1 md:p-0 shadow-2xl rounded-3xl w-full h-full">
         {/* INNER CARD */}
         <div
-          className="p-4 md:p-6 flex flex-col md:flex-row gap-4 md:gap-6 items-start w-full h-full rounded-xl"
+          className="p-4 md:p-6 flex flex-col md:flex-row gap-4 md:gap-6 items-start w-full h-full rounded-2xl"
           style={{
             background: isDark
               ? "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)"
@@ -58,7 +58,7 @@ export default function ProfileCard() {
         >
           {/* PHOTO */}
           <div className="flex md:flex-col flex-row items-center gap-4">
-            <div className="w-30 h-38 md:w-40 md:h-48 rounded-3xl border-[6px] border-zinc-300 dark:border-zinc-700 flex items-center justify-center overflow-hidden">
+            <div className="w-30 h-38 md:w-40 md:h-48 rounded-3xl border-2 border-zinc-300 dark:border-zinc-700 flex items-center justify-center overflow-hidden">
               <Image
                 src="/Light-profile.png"
                 alt="Portrait of Rohit Raj"

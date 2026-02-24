@@ -47,10 +47,10 @@ function StatsCard() {
   return (
     <div className="w-full h-full">
       {/* Outer Frame */}
-      <div className="bg-[#521786] p-1 md:p-0 shadow-2xl rounded-2xl w-full h-full">
+      <div className="bg-[#521786] p-1 md:p-0 shadow-2xl rounded-3xl w-full h-full">
         {/* Inner Card */}
         <div
-          className="p-4 md:p-6 rounded-xl w-full h-full"
+          className="p-4 md:p-6 rounded-2xl w-full h-full"
           style={{
             background: isDark
               ? "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)"

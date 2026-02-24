@@ -159,10 +159,6 @@ export const quotes: QuoteEntry[] = [
     author: "Thomas Edison",
   },
   {
-    quote: "sudo make me a sandwich.",
-    author: "xkcd #149",
-  },
-  {
     quote: "It works on my machine. Ship the machine.",
     author: "Senior Developer, 2024",
   },
