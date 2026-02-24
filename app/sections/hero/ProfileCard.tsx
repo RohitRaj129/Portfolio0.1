@@ -96,15 +96,19 @@ export default function ProfileCard() {
               <div>
                 <p className="text-xs md:text-sm text-zinc-500">Name</p>
                 <h2
-                  className={`text-base md:text-xl font-semibold tracking-wider ${isDark ? "text-white" : "text-black"}`}
+                  className={`text-base md:text-xl font-semibold tracking-wider ${
+                    isDark ? "text-white" : "text-black"
+                  }`}
                 >
-                  Rohit Raj
+                  Rohit
                 </h2>
               </div>
               <div className="text-right">
                 <p className="text-xs md:text-sm text-zinc-500">Rank</p>
                 <h2
-                  className={`text-base md:text-xl font-bold ${isDark ? "text-white" : "text-black"}`}
+                  className={`text-base md:text-xl font-bold ${
+                    isDark ? "text-white" : "text-black"
+                  }`}
                 >
                   Rookie Coder
                 </h2>
@@ -116,7 +120,9 @@ export default function ProfileCard() {
                 <div>
                   <p className="text-xs md:text-sm text-zinc-500">Level</p>
                   <h3
-                    className={`text-2xl md:text-3xl font-bold tracking-wide ${isDark ? "text-white" : "text-black"}`}
+                    className={`text-2xl md:text-3xl font-bold tracking-wide ${
+                      isDark ? "text-white" : "text-black"
+                    }`}
                   >
                     21
                   </h3>
@@ -124,7 +130,9 @@ export default function ProfileCard() {
                 <div className="text-right">
                   <p className="text-xs md:text-sm text-zinc-500">Guild</p>
                   <h2
-                    className={`text-base md:text-xl font-bold ${isDark ? "text-white" : "text-black"}`}
+                    className={`text-base md:text-xl font-bold ${
+                      isDark ? "text-white" : "text-black"
+                    }`}
                   >
                     not-in-guild
                   </h2>
@@ -145,7 +153,9 @@ export default function ProfileCard() {
                       className="object-contain"
                     />
                     <span
-                      className={`text-xs font-medium ${isDark ? "text-white" : "text-zinc-950"}`}
+                      className={`text-xs font-medium ${
+                        isDark ? "text-white" : "text-zinc-950"
+                      }`}
                     >
                       {categories[i].name}
                     </span>
