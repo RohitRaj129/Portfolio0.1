@@ -100,7 +100,7 @@ export default function ProfileCard() {
                     isDark ? "text-white" : "text-black"
                   }`}
                 >
-                  Rohit
+                  Rohit Raj
                 </h2>
               </div>
               <div className="text-right">
