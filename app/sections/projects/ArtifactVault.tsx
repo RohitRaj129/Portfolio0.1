@@ -27,10 +27,10 @@ function ArtifactVault() {
   return (
     <div className="w-full h-full">
       {/* OUTER FRAME */}
-      <div className="bg-[#521786] p-2 shadow-2xl rounded-3xl w-full h-full">
+      <div className="bg-[#521786] p-1 md:p-0 shadow-2xl rounded-2xl w-full h-full">
         {/* Inner Frame */}
         <div
-          className="p-4 md:p-8 flex flex-col gap-4 md:gap-6 items-start w-full h-full rounded-2xl"
+          className="p-4 md:p-8 flex flex-col gap-4 md:gap-6 items-start w-full h-full rounded-xl"
           style={{
             background: isDark
               ? "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)"
@@ -69,22 +69,22 @@ function ArtifactVault() {
                           ? "rgba(255,255,255,0.25)"
                           : "#6d28d9"
                         : isDark
-                          ? "rgba(255,255,255,0.08)"
-                          : "rgba(109,40,217,0.3)",
+                        ? "rgba(255,255,255,0.08)"
+                        : "rgba(109,40,217,0.3)",
                       backgroundColor: isActive
                         ? isDark
                           ? "rgba(255,255,255,0.08)"
                           : "rgba(109,40,217,0.12)"
                         : isDark
-                          ? "transparent"
-                          : "rgba(255,255,255,0.4)",
+                        ? "transparent"
+                        : "rgba(255,255,255,0.4)",
                       color: isActive
                         ? isDark
                           ? "#f1f5f9"
                           : "#4c1d95"
                         : isDark
-                          ? "#64748b"
-                          : "#6d28d9",
+                        ? "#64748b"
+                        : "#6d28d9",
                     }}
                     className="px-4 py-1.5 rounded-full border text-xs font-mono tracking-wide transition-all duration-200 hover:opacity-80 capitalize"
                   >

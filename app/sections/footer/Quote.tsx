@@ -21,10 +21,10 @@ export default function QuoteCard() {
   return (
     <div className="w-full h-full">
       {/* OUTER FRAME */}
-      <div className="bg-[#521786] p-2 shadow-2xl rounded-3xl w-full h-full">
-        {/* INNER CARD */}
+      <div className="bg-[#521786] p-1 md:p-0 shadow-2xl rounded-2xl w-full h-full">
+        {/* Inner Frame */}
         <div
-          className="relative p-6 md:p-8 flex flex-col justify-between w-full h-full rounded-2xl overflow-hidden min-h-30"
+          className="p-4 md:p-8 flex flex-col gap-4 md:gap-6 items-start w-full h-full rounded-xl"
           style={{
             background: isDark
               ? "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)"
@@ -33,7 +33,7 @@ export default function QuoteCard() {
         >
           {/* Decorative large quotation mark */}
           <span
-            className="absolute left-4 top-2 text-[120px] leading-none font-serif select-none pointer-events-none"
+            className="absolute left-4 top-2 text-[150px] leading-none font-serif select-none pointer-events-none"
             style={{
               color: isDark ? "rgba(255,255,255,0.07)" : "rgba(124,58,237,0.1)",
               fontFamily: "Georgia, 'Times New Roman', serif",

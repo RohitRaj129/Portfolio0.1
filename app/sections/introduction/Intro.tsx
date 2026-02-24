@@ -36,10 +36,10 @@ function Intro({}: Props) {
   return (
     <div className="w-full h-full">
       {/* OUTER FRAME */}
-      <div className="bg-[#521786] p-2 shadow-2xl rounded-3xl w-full h-full">
+      <div className="bg-[#521786] p-1 md:p-0 shadow-2xl rounded-2xl w-full h-full">
         {/* Inner Frame */}
         <div
-          className="p-4 md:p-6 flex flex-col md:flex-col gap-4 md:gap-6 items-start w-full h-full rounded-2xl"
+          className="p-4 md:p-6 flex flex-col md:flex-col gap-4 md:gap-6 items-start w-full h-full rounded-xl"
           style={{
             background: isDark
               ? "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)"
