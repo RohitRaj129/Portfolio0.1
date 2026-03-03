@@ -18,7 +18,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  // const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -30,13 +30,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    videoRef.current?.play();
+    // videoRef.current?.play();
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    videoRef.current?.pause();
-    if (videoRef.current) videoRef.current.currentTime = 0;
+    // videoRef.current?.pause();
+    // if (videoRef.current) videoRef.current.currentTime = 0;
   };
 
   return (
@@ -69,11 +69,19 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <img
           src={project.thumbnail}
           alt={project.name}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-            isHovered ? "opacity-0" : "opacity-100"
-          }`}
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <video
+
+        {/* DEMO badge */}
+        {/* {isHovered && (
+          <div className="absolute top-3 left-3">
+            <Badge variant="secondary" className="text-xs font-mono">
+              ▶ DEMO
+            </Badge>
+          </div>
+        )} */}
+
+        {/* <video
           ref={videoRef}
           src={project.demoVideo}
           muted
@@ -82,25 +90,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}
-        />
-
-        {/* DEMO badge */}
-        {isHovered && (
-          <div className="absolute top-3 left-3">
-            <Badge variant="secondary" className="text-xs font-mono">
-              ▶ DEMO
-            </Badge>
-          </div>
-        )}
-
-        {/* bottom fade */}
-        {/* <div
-          style={{
-            background: `linear-gradient(to top, ${
-              isDark ? "#111318" : "#ffffff"
-            }, transparent)`,
-          }}
-          className="absolute bottom-0 left-0 right-0 h-12"
         /> */}
       </div>
 
