@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description:
       "The TubeBoost boilerplate includes a range of features, from AI-powered content generation to thumbnail creation, trending keyword detection, and more. With its scalable architecture and robust toolset, TubeBoost is the perfect starting point for building custom applications that integrate AI, data analysis, and content creation.",
     demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail: "/projects/TubeBoost.png",
+    thumbnail: "/projects/tubeBoost.png",
     liveUrl: "https://tubeboost-nine.vercel.app/",
     githubUrl: "https://github.com/RohitRaj129/TubeBoost",
     technologies: [
