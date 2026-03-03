@@ -69,14 +69,6 @@ export default function AboutSection() {
             className="h-full w-full rounded-2xl object-cover object-top hidden dark:block"
             priority
           />
-          {/* Corner accent */}
-          <div
-            className="absolute top-2 right-2 w-2 h-2 rounded-full"
-            style={{
-              background: isDark ? "#a78bfa" : "#7c3aed",
-              boxShadow: isDark ? "0 0 8px #a78bfa" : "none",
-            }}
-          />
         </div>
 
         {/* Status pill */}
@@ -90,7 +82,7 @@ export default function AboutSection() {
               ? "1px solid rgba(167,139,250,0.3)"
               : "1px solid rgba(124,58,237,0.25)",
             color: isDark ? "#c4b5fd" : "#6d28d9",
-            fontFamily: "'Courier New', monospace",
+            fontFamily: "var(--font-syne)",
           }}
         >
           <span
@@ -109,7 +101,7 @@ export default function AboutSection() {
             className="text-xs uppercase tracking-[0.3em] mb-2 font-medium"
             style={{
               color: isDark ? "rgba(167,139,250,0.7)" : "rgba(109,40,217,0.6)",
-              fontFamily: "'Courier New', monospace",
+              fontFamily: "var(--font-instrument)",
             }}
           >
             About Me
@@ -118,7 +110,8 @@ export default function AboutSection() {
             className="text-4xl md:text-5xl font-bold leading-none"
             style={{
               color: isDark ? "#f5f3ff" : "#1e0a3c",
-              fontFamily: "'Georgia', serif",
+              // fontFamily: "'Georgia', serif",
+              fontFamily: "var(--font-syne)",
               letterSpacing: "-0.02em",
             }}
           >
@@ -140,7 +133,8 @@ export default function AboutSection() {
             className="text-sm leading-relaxed italic"
             style={{
               color: isDark ? "#c4b5fd" : "#5b21b6",
-              fontFamily: "'Georgia', serif",
+              // fontFamily: "'Georgia', serif",
+              fontFamily: "var(--font-isntrument)",
             }}
           >
             Every project is a dungeon.
@@ -154,7 +148,8 @@ export default function AboutSection() {
           className="text-sm md:text-base leading-relaxed"
           style={{
             color: isDark ? "rgba(229,222,255,0.75)" : "rgba(30,10,60,0.7)",
-            fontFamily: "'Georgia', serif",
+            // fontFamily: "'Georgia', serif",
+            fontFamily: "var(--font-syne)",
           }}
         >
           I started with frontend fundamentals and progressively moved into
@@ -173,7 +168,8 @@ export default function AboutSection() {
           className="text-sm leading-relaxed"
           style={{
             color: isDark ? "rgba(229,222,255,0.6)" : "rgba(30,10,60,0.55)",
-            fontFamily: "'Georgia', serif",
+            // fontFamily: "'Georgia', serif",
+            fontFamily: "var(--font-syne)",
           }}
         >
           I believe growth is engineered through execution, not theory.
@@ -187,7 +183,7 @@ export default function AboutSection() {
                 key={tech}
                 className="text-xs px-3 py-1 rounded-full transition-all duration-200 cursor-default"
                 style={{
-                  fontFamily: "'Courier New', monospace",
+                  fontFamily: "var(--font-instrument)",
                   background: isDark
                     ? "rgba(109,40,217,0.2)"
                     : "rgba(124,58,237,0.08)",

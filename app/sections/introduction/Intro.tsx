@@ -48,11 +48,16 @@ function Intro({}: Props) {
         >
           {/* Greetings */}
           <div className="mt-2">
-            <h1 className="text-4xl">Hey, I'm Rohit - A Web Developer.</h1>
+            <h1 className="text-4xl" style={{ fontFamily: "var(--font-syne)" }}>
+              Hey, I'm Rohit - A Web Developer.
+            </h1>
           </div>
           {/* Description */}
           <div>
-            <p>
+            <p
+              // className="text-lg max-w-2xl"
+              style={{ fontFamily: "var(--font-syne)" }}
+            >
               I build interactive web apps using Javascript , React , Next.js ,
               NPM and Tailwind CSS . with a focus on Scalability and UI design.
               Enthusiastic about GSAP and Three.js, driven by a keen eye for
@@ -61,15 +66,25 @@ function Intro({}: Props) {
           </div>
           <div className="flex gap-3">
             <Link href="#">
-              <Splash3dButton className="gap-1">
+              <Splash3dButton className="">
                 <FileText className="p-1" />
-                Resume/CV
+                <p
+                  className="text-sm"
+                  style={{ fontFamily: "var(--font-intrument)" }}
+                >
+                  Resume/CV
+                </p>
               </Splash3dButton>
             </Link>
             <Link href="#">
               <Splash3dButton>
                 <Send className="p-1" />
-                Get in touch
+                <p
+                  className="text-sm"
+                  style={{ fontFamily: "var(--font-instrument)" }}
+                >
+                  Get in touch
+                </p>
               </Splash3dButton>
             </Link>
           </div>
@@ -80,7 +95,7 @@ function Intro({}: Props) {
                   <Github />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Github</p>
+                  <p style={{ fontFamily: "var(--font-syne)" }}>Github</p>
                 </TooltipContent>
               </Tooltip>
             </Link>
@@ -93,7 +108,7 @@ function Intro({}: Props) {
                   <Linkedin />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Linkedin</p>
+                  <p style={{ fontFamily: "var(--font-syne)" }}>Linkedin</p>
                 </TooltipContent>
               </Tooltip>
             </Link>
@@ -103,7 +118,7 @@ function Intro({}: Props) {
                   <BsTwitterX className="size-6" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>X</p>
+                  <p style={{ fontFamily: "var(--font-syne)" }}>X</p>
                 </TooltipContent>
               </Tooltip>
             </Link>
@@ -113,7 +128,7 @@ function Intro({}: Props) {
                   <Mail />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Email</p>
+                  <p style={{ fontFamily: "var(--font-syne)" }}>Email</p>
                 </TooltipContent>
               </Tooltip>
             </Link>
@@ -126,7 +141,7 @@ function Intro({}: Props) {
                   <Instagram />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Instagram</p>
+                  <p style={{ fontFamily: "var(--font-syne)" }}>Instagram</p>
                 </TooltipContent>
               </Tooltip>
             </Link>

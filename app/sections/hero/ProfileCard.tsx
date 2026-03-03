@@ -94,21 +94,31 @@ export default function ProfileCard() {
           <div className="flex-1 w-full">
             <div className="flex justify-between">
               <div>
-                <p className="text-xs md:text-sm text-zinc-500">Name</p>
+                <p
+                  className="text-xs md:text-sm text-zinc-500"
+                  style={{ fontFamily: "var(--font-instrument)" }}
+                >
+                  Name
+                </p>
                 <h2
-                  className={`text-base md:text-xl font-semibold tracking-wider ${
-                    isDark ? "text-white" : "text-black"
-                  }`}
+                  className={`text-base md:text-xl font-semibold tracking-wider ${isDark ? "text-white" : "text-black"}`}
+                  style={{ fontFamily: "var(--font-syne)" }}
                 >
                   Rohit Raj
                 </h2>
               </div>
               <div className="text-right">
-                <p className="text-xs md:text-sm text-zinc-500">Rank</p>
+                <p
+                  className="text-xs md:text-sm text-zinc-500"
+                  style={{ fontFamily: "var(--font-instrument)" }}
+                >
+                  Rank
+                </p>
                 <h2
                   className={`text-base md:text-xl font-bold ${
                     isDark ? "text-white" : "text-black"
                   }`}
+                  style={{ fontFamily: "var(--font-syne)" }}
                 >
                   Rookie Coder
                 </h2>
@@ -118,21 +128,33 @@ export default function ProfileCard() {
             <div className="mt-3 md:mt-6">
               <div className="flex justify-between">
                 <div>
-                  <p className="text-xs md:text-sm text-zinc-500">Level</p>
+                  <p
+                    className="text-xs md:text-sm text-zinc-500"
+                    style={{ fontFamily: "var(--font-instrument)" }}
+                  >
+                    Level
+                  </p>
                   <h3
                     className={`text-2xl md:text-3xl font-bold tracking-wide ${
                       isDark ? "text-white" : "text-black"
                     }`}
+                    style={{ fontFamily: "var(--font-syne)" }}
                   >
                     21
                   </h3>
                 </div>
                 <div className="text-right">
-                  <p className="text-xs md:text-sm text-zinc-500">Guild</p>
+                  <p
+                    className="text-xs md:text-sm text-zinc-500"
+                    style={{ fontFamily: "var(--font-instrument)" }}
+                  >
+                    Guild
+                  </p>
                   <h2
-                    className={`text-base md:text-xl font-bold ${
+                    className={`mt-1 md:mt-2 text-lg md:text-2xl font-bold ${
                       isDark ? "text-white" : "text-black"
                     }`}
+                    style={{ fontFamily: "var(--font-syne)" }}
                   >
                     not-in-guild
                   </h2>

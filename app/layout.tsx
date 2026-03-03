@@ -1,4 +1,9 @@
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import {
+  Space_Grotesk,
+  JetBrains_Mono,
+  Syne,
+  Instrument_Sans,
+} from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./providers/theme-provider";
 import type { Metadata } from "next";
@@ -14,6 +19,18 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
+});
+
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+});
+
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -41,7 +58,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-display antialiased min-h-screen flex flex-col overflow-x-hidden`}
+        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${syne.variable} ${instrumentSans.variable} font-display antialiased min-h-screen flex flex-col overflow-x-hidden`}
         suppressHydrationWarning
       >
         <ThemeProvider>

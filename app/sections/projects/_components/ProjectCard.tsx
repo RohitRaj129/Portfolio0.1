@@ -7,7 +7,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Project } from "@/types";
-import { Github, Globe } from "lucide-react";
+import { ArrowRight, Github, Globe } from "lucide-react";
 import Image from "next/image";
 
 type ProjectCardProps = {
@@ -98,7 +98,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* Name + Links */}
         <div className="flex items-center justify-between">
           <h3
-            style={{ color: isDark ? "#f1f5f9" : "#0f172a" }}
+            style={{
+              color: isDark ? "#f1f5f9" : "#0f172a",
+              fontFamily: "var(--font-instrument)",
+            }}
             className="text-lg font-bold tracking-tight"
           >
             {project.name}
@@ -117,7 +120,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   <Globe />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Live url</p>
+                  <p style={{ fontFamily: "var(--font-syne)" }}>Live url</p>
                 </TooltipContent>
               </Tooltip>
             </a>
@@ -134,7 +137,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   <Github />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Github</p>
+                  <p style={{ fontFamily: "var(--font-syne)" }}>Github</p>
                 </TooltipContent>
               </Tooltip>
             </a>
@@ -143,7 +146,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Description */}
         <p
-          style={{ color: isDark ? "#64748b" : "#475569" }}
+          style={{
+            color: isDark ? "#64748b" : "#475569",
+            fontFamily: "var(--font-syne)",
+          }}
           className="text-sm leading-relaxed"
         >
           {project.description}
@@ -152,8 +158,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* Tech Stack */}
         <div className="flex flex-col gap-2">
           <span
-            style={{ color: isDark ? "#334155" : "#94a3b8" }}
-            className="text-[10px] font-mono uppercase tracking-widest"
+            style={{
+              color: isDark ? "#334155" : "#94a3b8",
+              fontFamily: "var(--font-instrument)",
+            }}
+            className="text-[10px] uppercase tracking-widest"
           >
             technologies
           </span>
@@ -170,7 +179,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{tech.name}</p>
+                  <p style={{ fontFamily: "var(--font-syne)" }}>{tech.name}</p>
                 </TooltipContent>
               </Tooltip>
             ))}
@@ -195,16 +204,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               className={`w-1.5 h-1.5 rounded-full animate-pulse ${
                 project.status === "working" ? "bg-emerald-500" : "bg-amber-500"
               }`}
+              style={{ fontFamily: "var(--font-instrument)" }}
             />
             {project.status}
           </Badge>
 
           {/* View Details → modal trigger placeholder */}
           <button
-            style={{ color: isDark ? "#60a5fa" : "#3b82f6" }}
-            className="text-sm font-mono hover:opacity-70 transition-opacity cursor-pointer"
+            style={{
+              color: isDark ? "#60a5fa" : "#3b82f6",
+              fontFamily: "var(--font-syne)",
+            }}
+            className="text-sm hover:opacity-70 transition-opacity cursor-pointer"
           >
-            View Details →
+            View Details <span className="text-lg">→</span>
           </button>
         </div>
       </div>

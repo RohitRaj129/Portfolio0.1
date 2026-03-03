@@ -39,7 +39,10 @@ function ArtifactVault() {
         >
           {/* Title */}
           <h1
-            style={{ color: isDark ? "#f1f5f9" : "#0f172a" }}
+            style={{
+              color: isDark ? "#f1f5f9" : "#0f172a",
+              fontFamily: "var(--font-instrument)",
+            }}
             className="text-2xl md:text-3xl font-bold"
           >
             Artifact Vault (Projects)
@@ -48,7 +51,10 @@ function ArtifactVault() {
           {/* Description + Filters row */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 w-full">
             <p
-              style={{ color: isDark ? "#64748b" : "#475569" }}
+              style={{
+                color: isDark ? "#64748b" : "#475569",
+                fontFamily: "var(--font-syne)",
+              }}
               className="text-sm max-w-md"
             >
               A curated collection of things I've built, broken, and rebuilt —
@@ -69,22 +75,23 @@ function ArtifactVault() {
                           ? "rgba(255,255,255,0.25)"
                           : "#6d28d9"
                         : isDark
-                        ? "rgba(255,255,255,0.08)"
-                        : "rgba(109,40,217,0.3)",
+                          ? "rgba(255,255,255,0.08)"
+                          : "rgba(109,40,217,0.3)",
                       backgroundColor: isActive
                         ? isDark
                           ? "rgba(255,255,255,0.08)"
                           : "rgba(109,40,217,0.12)"
                         : isDark
-                        ? "transparent"
-                        : "rgba(255,255,255,0.4)",
+                          ? "transparent"
+                          : "rgba(255,255,255,0.4)",
                       color: isActive
                         ? isDark
                           ? "#f1f5f9"
                           : "#4c1d95"
                         : isDark
-                        ? "#64748b"
-                        : "#6d28d9",
+                          ? "#64748b"
+                          : "#6d28d9",
+                      fontFamily: "var(--font-syne)",
                     }}
                     className="px-4 py-1.5 rounded-full border text-xs font-mono tracking-wide transition-all duration-200 hover:opacity-80 capitalize"
                   >

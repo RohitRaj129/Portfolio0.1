@@ -59,7 +59,10 @@ function StatsCard() {
         >
           {/* Header */}
           <div className="flex justify-between items-start mb-4">
-            <h2 className={`text-xl md:text-2xl font-bold ${textPrimary}`}>
+            <h2
+              className={`text-xl md:text-2xl font-bold ${textPrimary}`}
+              style={{ fontFamily: "var(--font-syne)" }}
+            >
               Player Stats
             </h2>
             <div className={`text-right text-xs md:text-sm ${textMuted}`}>
@@ -78,10 +81,14 @@ function StatsCard() {
                 <div className="flex justify-between items-center mb-1">
                   <span
                     className={`text-sm md:text-lg font-semibold ${textPrimary}`}
+                    style={{ fontFamily: "var(--font-syne)" }}
                   >
                     {stat.label}
                   </span>
-                  <span className={`text-xs md:text-sm ${textMuted}`}>
+                  <span
+                    className={`text-xs md:text-sm ${textMuted}`}
+                    style={{ fontFamily: "var(--font-instrument)" }}
+                  >
                     {stat.current}/{stat.max}
                   </span>
                 </div>
@@ -98,7 +105,10 @@ function StatsCard() {
                 </div>
 
                 {stat.status && (
-                  <p className={`text-xs text-right mt-1 ${stat.statusColor}`}>
+                  <p
+                    className={`text-xs text-right mt-1 ${stat.statusColor}`}
+                    style={{ fontFamily: "var(--font-syne)" }}
+                  >
                     {stat.status}
                   </p>
                 )}
