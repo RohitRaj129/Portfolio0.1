@@ -62,10 +62,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         }}
         className="relative w-full overflow-hidden"
       >
-        <img
+        <Image
           src={project.thumbnail}
           alt={project.name}
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          className="object-cover"
         />
       </div>
 
