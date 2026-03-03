@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -7,7 +7,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Project } from "@/types";
-import { ArrowRight, Github, Globe } from "lucide-react";
+import { Github, Globe } from "lucide-react";
 import Image from "next/image";
 
 type ProjectCardProps = {
@@ -18,7 +18,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  // const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -30,13 +29,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    // videoRef.current?.play();
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    // videoRef.current?.pause();
-    // if (videoRef.current) videoRef.current.currentTime = 0;
   };
 
   return (
@@ -58,11 +54,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       }}
       className="rounded-2xl border overflow-hidden flex flex-col"
     >
-      {/* ── Media Section ── */}
+      {/* Media Section */}
       <div
         style={{
           backgroundColor: isDark ? "#0a0a0f" : "#f1f5f9",
-          paddingTop: "56.25%", // 16:9 ratio
+          paddingTop: "56.25%",
         }}
         className="relative w-full overflow-hidden"
       >
@@ -71,29 +67,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           alt={project.name}
           className="absolute inset-0 w-full h-full object-cover"
         />
-
-        {/* DEMO badge */}
-        {/* {isHovered && (
-          <div className="absolute top-3 left-3">
-            <Badge variant="secondary" className="text-xs font-mono">
-              ▶ DEMO
-            </Badge>
-          </div>
-        )} */}
-
-        {/* <video
-          ref={videoRef}
-          src={project.demoVideo}
-          muted
-          loop
-          playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-        /> */}
       </div>
 
-      {/* ── Info Section ── */}
+      {/* Info Section */}
       <div className="flex flex-col gap-3 p-5 flex-1">
         {/* Name + Links */}
         <div className="flex items-center justify-between">
@@ -113,7 +89,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               style={{ color: isDark ? "#64748b" : "#94a3b8" }}
               className="transition-colors text-lg"
-              title="Live Site"
             >
               <Tooltip>
                 <TooltipTrigger className="cursor-pointer">
@@ -130,7 +105,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               style={{ color: isDark ? "#64748b" : "#94a3b8" }}
               className="transition-colors text-lg"
-              title="GitHub"
             >
               <Tooltip>
                 <TooltipTrigger className="cursor-pointer">
@@ -156,7 +130,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </p>
 
         {/* Tech Stack */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 mt-auto">
           <span
             style={{
               color: isDark ? "#334155" : "#94a3b8",
@@ -189,9 +163,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* Footer */}
         <div
           style={{ borderTopColor: isDark ? "#1e293b" : "#e2e8f0" }}
-          className="flex items-center justify-between pt-3 mt-auto border-t"
+          className="flex items-center justify-between pt-3 border-t"
         >
-          {/* Status Badge */}
           <Badge
             variant="outline"
             className={`font-mono text-[11px] gap-1.5 ${
@@ -204,12 +177,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               className={`w-1.5 h-1.5 rounded-full animate-pulse ${
                 project.status === "working" ? "bg-emerald-500" : "bg-amber-500"
               }`}
-              style={{ fontFamily: "var(--font-instrument)" }}
             />
             {project.status}
           </Badge>
 
-          {/* View Details → modal trigger placeholder */}
           <button
             style={{
               color: isDark ? "#60a5fa" : "#3b82f6",
