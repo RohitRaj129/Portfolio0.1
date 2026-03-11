@@ -5,9 +5,12 @@ interface SocialLink {
 
 export default function SystemFooter() {
   const socialLinks: SocialLink[] = [
-    { href: "#", label: "[GITHUB]" },
-    { href: "#", label: "[LINKEDIN]" },
-    { href: "#", label: "[MAIL]" },
+    { href: "https://github.com/RohitRaj129", label: "[GITHUB]" },
+    {
+      href: "https://www.linkedin.com/in/rohit-raj-6ba7772b8/",
+      label: "[LINKEDIN]",
+    },
+    { href: "mailto:rohitraj129848@gmail.com", label: "[MAIL]" },
   ];
 
   return (
