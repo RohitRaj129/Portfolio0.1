@@ -118,7 +118,7 @@ function StatsCard() {
                   }`}
                 >
                   <div
-                    className={`h-full rounded-full bg-gradient-to-r ${stat.colorClass}`}
+                    className={`h-full rounded-full bg-linear-to-r ${stat.colorClass}`}
                     style={{ width: `${(stat.current / stat.max) * 100}%` }}
                   />
                 </div>
