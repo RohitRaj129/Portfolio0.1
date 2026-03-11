@@ -1,48 +1,59 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-
-const stats = [
-  {
-    label: "HP (caffeine Level)",
-    current: 77,
-    max: 100,
-    color: "bg-green-500",
-    status: "Status: Healthy",
-    statusColor: "text-green-500",
-  },
-  {
-    label: "MP (Mana/code)",
-    current: 70,
-    max: 100,
-    color: "bg-blue-500",
-    status: "Status: Recharging",
-    statusColor: "text-blue-400",
-  },
-  {
-    label: "XP (to next level)",
-    current: 7777,
-    max: 10000,
-    color: "bg-purple-500",
-    status: null,
-    statusColor: "",
-  },
-];
+import { playerStats as data } from "@/data/player";
 
 function StatsCard() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [hpValue, setHpValue] = useState(100);
+  const [mpValue, setMpValue] = useState(85);
 
   useEffect(() => {
     setMounted(true);
+    // Re-evaluate HP/MP on client since they read from localStorage
+    setHpValue(data.stats.hp.current);
+    setMpValue(data.stats.mp.current);
   }, []);
+
   if (!mounted) return null;
 
   const isDark = theme === "dark";
   const textPrimary = isDark ? "text-white" : "text-black";
   const textMuted = isDark ? "text-zinc-400" : "text-zinc-500";
   const borderColor = isDark ? "border-zinc-700" : "border-zinc-300";
+
+  const mpStatus =
+    mpValue < 20
+      ? "BURNED OUT"
+      : mpValue < 40
+        ? "DRAINED"
+        : mpValue < 55
+          ? "LOW MANA"
+          : mpValue < 70
+            ? "RECHARGING"
+            : mpValue < 85
+              ? "FOCUSED"
+              : "IN THE ZONE";
+
+  const stats = [
+    { ...data.stats.hp, current: hpValue },
+    { ...data.stats.mp, current: mpValue, status: mpStatus },
+    data.stats.xp,
+  ];
+
+  const statusColorMap: Record<string, string> = {
+    HEALTHY: "text-green-400",
+    TIRED: "text-yellow-400",
+    "NEED SLEEP": "text-red-400",
+    "IN THE ZONE": "text-cyan-300",
+    FOCUSED: "text-blue-300",
+    RECHARGING: "text-blue-400",
+    "LOW MANA": "text-indigo-400",
+    DRAINED: "text-purple-400",
+    "BURNED OUT": "text-red-500",
+  };
 
   return (
     <div className="w-full h-full">
@@ -66,8 +77,8 @@ function StatsCard() {
               Player Stats
             </h2>
             <div className={`text-right text-xs md:text-sm ${textMuted}`}>
-              <p>ID: #dev-2005</p>
-              <p>Server: INDIA-1</p>
+              <p>ID: {data.id}</p>
+              <p>Server: {data.server}</p>
             </div>
           </div>
 
@@ -79,12 +90,20 @@ function StatsCard() {
             {stats.map((stat, i) => (
               <div key={i}>
                 <div className="flex justify-between items-center mb-1">
-                  <span
-                    className={`text-sm md:text-lg font-semibold ${textPrimary}`}
-                    style={{ fontFamily: "var(--font-syne)" }}
-                  >
-                    {stat.label}
-                  </span>
+                  <div>
+                    <span
+                      className={`text-sm md:text-lg font-semibold ${textPrimary}`}
+                      style={{ fontFamily: "var(--font-syne)" }}
+                    >
+                      {stat.label}
+                    </span>
+                    <span
+                      className={`ml-2 text-xs ${textMuted}`}
+                      style={{ fontFamily: "var(--font-instrument)" }}
+                    >
+                      {stat.subLabel}
+                    </span>
+                  </div>
                   <span
                     className={`text-xs md:text-sm ${textMuted}`}
                     style={{ fontFamily: "var(--font-instrument)" }}
@@ -99,14 +118,16 @@ function StatsCard() {
                   }`}
                 >
                   <div
-                    className={`h-full rounded-full ${stat.color}`}
+                    className={`h-full rounded-full bg-gradient-to-r ${stat.colorClass}`}
                     style={{ width: `${(stat.current / stat.max) * 100}%` }}
                   />
                 </div>
 
                 {stat.status && (
                   <p
-                    className={`text-xs text-right mt-1 ${stat.statusColor}`}
+                    className={`text-xs text-right mt-1 ${
+                      statusColorMap[stat.status] ?? textMuted
+                    }`}
                     style={{ fontFamily: "var(--font-syne)" }}
                   >
                     {stat.status}

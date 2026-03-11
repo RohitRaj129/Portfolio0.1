@@ -1,64 +1,6 @@
 "use client";
+import { skillsData } from "@/data/skills";
 import { useState } from "react";
-
-const skillsData = {
-  Core: {
-    desc: "Foundational CS concepts & system thinking.",
-    skills: [
-      "Data Structures",
-      "Algorithms",
-      "System Design",
-      "OOP Principles",
-      "Design Patterns",
-      "Complexity Analysis",
-    ],
-  },
-  Frontend: {
-    desc: "Crafting fast, beautiful interfaces.",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Figma",
-      "Storybook",
-      "Vite",
-    ],
-  },
-  Backend: {
-    desc: "APIs, databases, and server architecture.",
-    skills: [
-      "Node.js",
-      "Express",
-      "Python",
-      "FastAPI",
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "GraphQL",
-      "REST APIs",
-    ],
-  },
-  Tools: {
-    desc: "Dev workflows & infrastructure.",
-    skills: [
-      "Git",
-      "GitHub Actions",
-      "Docker",
-      "CI/CD",
-      "Linux",
-      "Bash",
-      "AWS",
-      "Vercel",
-      "Postman",
-    ],
-  },
-  Languages: {
-    desc: "Coding and spoken languages.",
-    skills: ["JavaScript", "TypeScript", "Python", "SQL", "English", "Hindi"],
-  },
-};
 
 type SkillCategory = keyof typeof skillsData;
 const niches = Object.keys(skillsData) as SkillCategory[];

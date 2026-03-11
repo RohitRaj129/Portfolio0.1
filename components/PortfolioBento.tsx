@@ -31,7 +31,7 @@ const updateCardGlowProperties = (
   mouseX: number,
   mouseY: number,
   glow: number,
-  radius: number
+  radius: number,
 ) => {
   const rect = card.getBoundingClientRect();
   const relativeX = ((mouseX - rect.left) / rect.width) * 100;
@@ -140,7 +140,7 @@ const GlobalSpotlight: React.FC<{
           e.clientX,
           e.clientY,
           glowIntensity,
-          spotlightRadius
+          spotlightRadius,
         );
       });
 
@@ -152,8 +152,9 @@ const GlobalSpotlight: React.FC<{
           minDistance <= proximity
             ? 0.8
             : minDistance <= fadeDistance
-            ? ((fadeDistance - minDistance) / (fadeDistance - proximity)) * 0.8
-            : 0;
+              ? ((fadeDistance - minDistance) / (fadeDistance - proximity)) *
+                0.8
+              : 0;
 
         spotlightRef.current.style.opacity = targetOpacity.toString();
       }
@@ -247,6 +248,11 @@ export default function PortfolioBento({
       width: 100%;
     }
 
+    /* Hide GitHub Activity card */
+    .portfolio-bento-card:nth-child(7) {
+      display: none;
+    }
+
     /* Mobile — all cards stack */
     .portfolio-bento-card:nth-child(n) {
       grid-column: span 1;
@@ -269,17 +275,15 @@ export default function PortfolioBento({
         padding: 0 1.5rem;
       }
 
-      /* Card 1 and 2 — 3:2 ratio */
       .portfolio-bento-card:nth-child(1) { grid-column: span 1; min-height: 300px; }
       .portfolio-bento-card:nth-child(2) { grid-column: span 1; min-height: 300px; }
 
-      /* All remaining — full width */
       .portfolio-bento-card:nth-child(n+3) { grid-column: span 2; min-height: 250px; }
 
-      /* Artifacts Vault — taller */
-      .portfolio-bento-card:nth-child(4) { min-height: 500px; }
+      /* Hide GitHub Activity */
+      .portfolio-bento-card:nth-child(7) { display: none; }
 
-      /* Skills Inventory — taller */
+      .portfolio-bento-card:nth-child(4) { min-height: 500px; }
       .portfolio-bento-card:nth-child(5) { min-height: 400px; }
 
       /* Quote — 70% centered */
@@ -305,7 +309,9 @@ export default function PortfolioBento({
       .portfolio-bento-card:nth-child(4) { min-height: 600px; }
       .portfolio-bento-card:nth-child(5) { min-height: 450px; }
       .portfolio-bento-card:nth-child(6) { min-height: 300px; }
-      .portfolio-bento-card:nth-child(7) { min-height: 300px; }
+
+      /* Hide GitHub Activity */
+      .portfolio-bento-card:nth-child(7) { display: none; }
 
       /* Quote — 60% centered */
       .portfolio-bento-card:nth-child(8) {
@@ -322,6 +328,9 @@ export default function PortfolioBento({
         gap: 1.5rem;
         padding: 0;
       }
+
+      /* Hide GitHub Activity */
+      .portfolio-bento-card:nth-child(7) { display: none; }
 
       /* Quote — 50% centered */
       .portfolio-bento-card:nth-child(8) {

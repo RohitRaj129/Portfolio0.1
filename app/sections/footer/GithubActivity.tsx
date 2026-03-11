@@ -14,6 +14,10 @@ export default function AboutMe({}: Props) {
   }, []);
   if (!mounted) return null;
 
+  // Hide component if GitHub contributions are not available
+  const hasGithubContributions = false; // Set to true when data is available
+  if (!hasGithubContributions) return null;
+
   const isDark = theme === "dark";
 
   return (

@@ -62,3 +62,68 @@ export const skills: Skill[] = [
     isSpecial: true,
   },
 ];
+
+export const skillsData = {
+  Core: {
+    desc: "Foundational CS concepts & system thinking.",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "SQL",
+      "Python",
+      "C",
+      // "Java",
+    ],
+  },
+  Frontend: {
+    desc: "Crafting fast, beautiful interfaces.",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "GSAP",
+      "Shadcn UI",
+      "Figma",
+      "Storybook",
+      "Vite",
+    ],
+  },
+  Backend: {
+    desc: "APIs, databases, and server architecture.",
+    skills: [
+      "Node.js",
+      "Express",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "MongoDB",
+      "REST APIs",
+    ],
+  },
+  Tools: {
+    desc: "Dev workflows & infrastructure.",
+    skills: [
+      "Git",
+      "GitHub",
+      "Docker",
+      "Vercel",
+      "Figma",
+      "ImageKit",
+      "Stripe",
+      "Supabase",
+      "Razorpay",
+      "Postman",
+    ],
+  },
+  Languages: {
+    desc: "Coding and spoken languages.",
+    skills: ["English", "Hindi"],
+  },
+};

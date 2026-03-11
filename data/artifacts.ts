@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description:
       "The TubeBoost boilerplate includes a range of features, from AI-powered content generation to thumbnail creation, trending keyword detection, and more. With its scalable architecture and robust toolset, TubeBoost is the perfect starting point for building custom applications that integrate AI, data analysis, and content creation.",
     demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail: "/projects/tubeboost.png",
+    thumbnail: "/projects/tube_boost.png",
     liveUrl: "https://tubeboost-nine.vercel.app/",
     githubUrl: "https://github.com/RohitRaj129/TubeBoost",
     technologies: [
@@ -41,33 +41,39 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    name: "MotionForge",
+    name: "BingeIt",
     description:
-      "A visual animation timeline editor that exports production-ready Framer Motion and GSAP code from drag-and-drop sequences.",
+      "A modern movie exploration and booking platform featuring trailer previews, dynamic content from TMDB API, and seamless ticket booking with secure payment integration.",
     demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail:
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80",
+    thumbnail: "/projects/bingeit.png",
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/RohitRaj129/BingeIt",
     technologies: [
+      { name: "Next.js", icon: "/assets/nextjs.png" },
       { name: "React", icon: "/assets/react.png" },
-      { name: "GSAP", icon: "/assets/gsap.png" },
+      { name: "TypeScript", icon: "/assets/typescript.png" },
+      { name: "Tailwind", icon: "/assets/tailwind.png" },
+      { name: "Supabase", icon: "/assets/supabase.png" },
+      // { name: "Razorpay", icon: "/assets/razorpay.png" },
     ],
-    status: "working",
+    status: "building",
   },
   {
     id: 4,
-    name: "DataWeave",
+    name: "AI Recruiter",
     description:
-      "Schema-first data pipeline builder with a node-graph UI. Drag transformations, preview results live, and deploy to cloud.",
+      "AI-driven hiring assistant that automates resume screening, candidate evaluation, and shortlisting to streamline the recruitment process.",
     demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail:
-      "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&q=80",
+    thumbnail: "/projects/ai_recruiter.png",
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/RohitRaj129/AI-Recruiter",
     technologies: [
       { name: "Next.js", icon: "/assets/nextjs.png" },
-      { name: "Kubernetes", icon: "/assets/kubernetes.png" },
+      { name: "React", icon: "/assets/react.png" },
+      { name: "JavaScript", icon: "/assets/js.png" },
+      { name: "Tailwind", icon: "/assets/tailwind.png" },
+      { name: "FastAPI", icon: "/assets/fastapi.png" },
+      { name: "Supabase", icon: "/assets/supabase.png" },
     ],
     status: "building",
   },
