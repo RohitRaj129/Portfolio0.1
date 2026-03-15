@@ -10,6 +10,15 @@ function StatsCard() {
   const [hpValue, setHpValue] = useState(100);
   const [mpValue, setMpValue] = useState(85);
 
+  const getHpColorClass = (current: number, max: number) => {
+    const percentage = (current / max) * 100;
+
+    if (percentage >= 75) return "from-emerald-500 to-green-400";
+    if (percentage >= 50) return "from-lime-500 to-amber-400";
+    if (percentage >= 25) return "from-amber-500 to-orange-500";
+    return "from-red-600 to-red-400";
+  };
+
   useEffect(() => {
     setMounted(true);
     // Re-evaluate HP/MP on client since they read from localStorage
@@ -87,54 +96,61 @@ function StatsCard() {
 
           {/* Stats */}
           <div className="flex flex-col gap-4 md:gap-6">
-            {stats.map((stat, i) => (
-              <div key={i}>
-                <div className="flex justify-between items-center mb-1">
-                  <div>
+            {stats.map((stat, i) => {
+              const barColorClass =
+                stat.label === data.stats.hp.label
+                  ? getHpColorClass(stat.current, stat.max)
+                  : stat.colorClass;
+
+              return (
+                <div key={i}>
+                  <div className="flex justify-between items-center mb-1">
+                    <div>
+                      <span
+                        className={`text-sm md:text-lg font-semibold ${textPrimary}`}
+                        style={{ fontFamily: "var(--font-syne)" }}
+                      >
+                        {stat.label}
+                      </span>
+                      <span
+                        className={`ml-2 text-xs ${textMuted}`}
+                        style={{ fontFamily: "var(--font-instrument)" }}
+                      >
+                        {stat.subLabel}
+                      </span>
+                    </div>
                     <span
-                      className={`text-sm md:text-lg font-semibold ${textPrimary}`}
-                      style={{ fontFamily: "var(--font-syne)" }}
-                    >
-                      {stat.label}
-                    </span>
-                    <span
-                      className={`ml-2 text-xs ${textMuted}`}
+                      className={`text-xs md:text-sm ${textMuted}`}
                       style={{ fontFamily: "var(--font-instrument)" }}
                     >
-                      {stat.subLabel}
+                      {stat.current}/{stat.max}
                     </span>
                   </div>
-                  <span
-                    className={`text-xs md:text-sm ${textMuted}`}
-                    style={{ fontFamily: "var(--font-instrument)" }}
-                  >
-                    {stat.current}/{stat.max}
-                  </span>
-                </div>
 
-                <div
-                  className={`w-full h-2 md:h-3 rounded-full ${
-                    isDark ? "bg-zinc-800" : "bg-zinc-200"
-                  }`}
-                >
                   <div
-                    className={`h-full rounded-full bg-linear-to-r ${stat.colorClass}`}
-                    style={{ width: `${(stat.current / stat.max) * 100}%` }}
-                  />
-                </div>
-
-                {stat.status && (
-                  <p
-                    className={`text-xs text-right mt-1 ${
-                      statusColorMap[stat.status] ?? textMuted
+                    className={`w-full h-2 md:h-3 rounded-full ${
+                      isDark ? "bg-zinc-800" : "bg-zinc-200"
                     }`}
-                    style={{ fontFamily: "var(--font-syne)" }}
                   >
-                    {stat.status}
-                  </p>
-                )}
-              </div>
-            ))}
+                    <div
+                      className={`h-full rounded-full bg-linear-to-r ${barColorClass}`}
+                      style={{ width: `${(stat.current / stat.max) * 100}%` }}
+                    />
+                  </div>
+
+                  {stat.status && (
+                    <p
+                      className={`text-xs text-right mt-1 ${
+                        statusColorMap[stat.status] ?? textMuted
+                      }`}
+                      style={{ fontFamily: "var(--font-syne)" }}
+                    >
+                      {stat.status}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

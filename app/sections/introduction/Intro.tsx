@@ -65,7 +65,11 @@ function Intro({}: Props) {
             </p>
           </div>
           <div className="flex gap-3">
-            <Link href="#">
+            <Link
+              href="https://drive.google.com/file/d/1_kcJfk9MAVj6ydWoEJLUNNBev9Fv81_m/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Splash3dButton className="">
                 <FileText className="p-1" />
                 <p
