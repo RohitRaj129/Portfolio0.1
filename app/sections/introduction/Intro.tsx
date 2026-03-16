@@ -66,7 +66,7 @@ function Intro({}: Props) {
           </div>
           <div className="flex gap-3">
             <Link
-              href="https://drive.google.com/file/d/1_kcJfk9MAVj6ydWoEJLUNNBev9Fv81_m/view"
+              href="https://drive.google.com/file/d/1wHiyE651RFUNI3vgK7d-yHRIHuqKiESu/view"
               target="_blank"
               rel="noopener noreferrer"
             >
