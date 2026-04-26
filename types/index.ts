@@ -22,7 +22,8 @@ export type Project = {
   name: string;
   description: string;
   demoVideo: string;
-  thumbnail: string;
+  thumbnail_dark: string;
+  thumbnail_light: string;
   liveUrl: string;
   githubUrl: string;
   technologies: Tech[];

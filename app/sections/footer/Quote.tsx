@@ -21,14 +21,18 @@ export default function QuoteCard() {
   return (
     <div className="w-full">
       {/* OUTER FRAME — no h-full, height follows content */}
-      <div className="bg-[#521786] p-1 md:p-0 shadow-2xl rounded-3xl w-full">
+      <div
+        className={`${isDark ? "bg-[#521786]" : "bg-[#d0c5f6]"} p-1 md:p-0 shadow-2xl rounded-3xl w-full h-full`}
+      >
         {/* Inner Frame */}
         <div
           className="relative flex flex-col w-full rounded-[22px] overflow-hidden p-5 sm:p-7 md:p-8"
           style={{
             background: isDark
               ? "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)"
-              : "radial-gradient(125% 125% at 50% 90%, #fff 40%, #7c3aed 100%)",
+              : `radial-gradient(circle at 30% 70%, rgba(173, 216, 230, 0.35), transparent 60%),
+       radial-gradient(circle at 70% 30%, rgba(167, 139, 250, 0.3), transparent 60%)`,
+            backgroundColor: isDark ? undefined : "#fefcff",
           }}
         >
           {/* Decorative large quotation mark */}

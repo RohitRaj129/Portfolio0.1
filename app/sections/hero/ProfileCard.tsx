@@ -46,14 +46,18 @@ export default function ProfileCard() {
   return (
     <div className="w-full h-full">
       {/* OUTER FRAME */}
-      <div className="bg-[#521786] p-1 md:p-0 shadow-2xl rounded-3xl w-full h-full">
+      <div
+        className={`${isDark ? "bg-[#521786]" : "bg-[#d0c5f6]"} p-1 md:p-0 shadow-2xl rounded-3xl w-full h-full`}
+      >
         {/* INNER CARD */}
         <div
           className="p-4 md:p-6 flex flex-col md:flex-row gap-4 md:gap-6 items-start w-full h-full rounded-2xl"
           style={{
             background: isDark
               ? "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)"
-              : "radial-gradient(125% 125% at 50% 90%, #fff 40%, #7c3aed 100%)",
+              : `radial-gradient(circle at 30% 70%, rgba(173, 216, 230, 0.35), transparent 60%),
+       radial-gradient(circle at 70% 30%, rgba(167, 139, 250, 0.3), transparent 60%)`,
+            backgroundColor: isDark ? undefined : "#fefcff",
           }}
         >
           {/* PHOTO */}

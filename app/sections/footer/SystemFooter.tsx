@@ -19,7 +19,7 @@ export default function SystemFooter() {
         {/* Copyright */}
         <div className="flex items-center gap-2 text-text-muted text-sm">
           <span className="material-symbols-outlined text-base">copyright</span>
-          <span>2023 SYSTEM INC.</span>
+          <span>2026</span>
         </div>
 
         {/* Social Links */}
@@ -37,7 +37,7 @@ export default function SystemFooter() {
 
         {/* System Status */}
         <p className="text-xs text-gray-600 font-mono">
-          SYSTEM INTEGRITY: 100%
+          Made by Rohit Raj with ❤️
         </p>
       </div>
     </footer>

@@ -15,6 +15,7 @@ interface PortfolioBentoProps {
   clickEffect?: boolean;
   enableMagnetism?: boolean;
   children: React.ReactNode[];
+  childOverflowVisible?: number[];
 }
 
 const DEFAULT_GLOW_COLOR = "132, 0, 255";
@@ -211,6 +212,7 @@ export default function PortfolioBento({
   clickEffect = true,
   enableMagnetism = false,
   children,
+  childOverflowVisible = [4],
 }: PortfolioBentoProps) {
   const gridRef = useRef<HTMLDivElement>(null);
   const isMobile = useMobileDetection();
@@ -220,158 +222,151 @@ export default function PortfolioBento({
     <>
       <style>
         {`
-    .portfolio-bento-section {
-      --glow-x: 50%;
-      --glow-y: 50%;
-      --glow-intensity: 0;
-      --glow-radius: ${spotlightRadius}px;
-      --glow-color: ${glowColor};
-      --border-color: rgba(132, 0, 255, 0.2);
-    }
+  .portfolio-bento-section {
+    --glow-x: 50%;
+    --glow-y: 50%;
+    --glow-intensity: 0;
+    --glow-radius: ${spotlightRadius}px;
+    --glow-color: ${glowColor};
+    --border-color: rgba(132, 0, 255, 0.2);
+  }
 
-    /* ── Base (Mobile first) ── */
+  /* ── Base (Mobile first) ── */
+  .portfolio-bento-grid {
+    display: grid;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-bento-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 200px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Mobile — all cards stack */
+  .portfolio-bento-card:nth-child(n) {
+    grid-column: span 1;
+    min-height: 200px;
+  }
+
+  /* Mobile — Quote full width */
+  .portfolio-bento-card:nth-child(6) {
+    grid-column: span 1;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100px;
+  }
+
+  /* ── Tablet (600px+) ── */
+  @media (min-width: 600px) {
     .portfolio-bento-grid {
-      display: grid;
-      gap: 0.75rem;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      grid-template-columns: 1fr;
+      grid-template-columns: 3fr 2fr;
+      gap: 1rem;
+      padding: 0 1.5rem;
     }
 
-    .portfolio-bento-card {
-      position: relative;
-      border-radius: 20px;
-      overflow: visible;
-      min-height: 200px;
-      width: 100%;
-    }
+    .portfolio-bento-card:nth-child(1) { grid-column: span 1; min-height: 300px; }
+    .portfolio-bento-card:nth-child(2) { grid-column: span 1; min-height: 300px; }
 
-    /* Hide GitHub Activity card */
+    .portfolio-bento-card:nth-child(n+3) { grid-column: span 2; min-height: 250px; }
+
+    .portfolio-bento-card:nth-child(4) { min-height: 500px; }
+    .portfolio-bento-card:nth-child(5) { min-height: 280px; max-height: none; overflow: visible; }
+    .portfolio-bento-card:nth-child(6) { min-height: 280px; max-height: none; overflow: visible; }
+
+    /* Quote — 70% centered */
     .portfolio-bento-card:nth-child(7) {
-      display: none;
-    }
-
-    /* Mobile — all cards stack */
-    .portfolio-bento-card:nth-child(n) {
-      grid-column: span 1;
-      min-height: 200px;
-    }
-
-    /* Mobile — Quote full width */
-    .portfolio-bento-card:nth-child(8) {
-      grid-column: span 1;
-      width: 100%;
+      grid-column: span 2;
+      width: 70%;
       margin: 0 auto;
       min-height: 100px;
     }
+  }
 
-    /* ── Tablet (600px+) ── */
-    @media (min-width: 600px) {
-      .portfolio-bento-grid {
-        grid-template-columns: 3fr 2fr;
-        gap: 1rem;
-        padding: 0 1.5rem;
-      }
-
-      .portfolio-bento-card:nth-child(1) { grid-column: span 1; min-height: 300px; }
-      .portfolio-bento-card:nth-child(2) { grid-column: span 1; min-height: 300px; }
-
-      .portfolio-bento-card:nth-child(n+3) { grid-column: span 2; min-height: 250px; }
-
-      /* Hide GitHub Activity */
-      .portfolio-bento-card:nth-child(7) { display: none; }
-
-      .portfolio-bento-card:nth-child(4) { min-height: 500px; }
-      .portfolio-bento-card:nth-child(5) { min-height: 400px; }
-
-      /* Quote — 70% centered */
-      .portfolio-bento-card:nth-child(8) {
-        grid-column: span 2;
-        width: 70%;
-        margin: 0 auto;
-        min-height: 100px;
-      }
+  /* ── Desktop (1024px+) ── */
+  @media (min-width: 1024px) {
+    .portfolio-bento-grid {
+      grid-template-columns: 3fr 2fr;
+      gap: 1.25rem;
+      padding: 0 2rem;
     }
 
-    /* ── Desktop (1024px+) ── */
-    @media (min-width: 1024px) {
-      .portfolio-bento-grid {
-        grid-template-columns: 3fr 2fr;
-        gap: 1.25rem;
-        padding: 0 2rem;
-      }
+    .portfolio-bento-card:nth-child(1) { min-height: 350px; }
+    .portfolio-bento-card:nth-child(2) { min-height: 350px; }
+    .portfolio-bento-card:nth-child(3) { min-height: 200px; }
+    .portfolio-bento-card:nth-child(4) { min-height: 600px; }
+    .portfolio-bento-card:nth-child(5) { min-height: 300px; max-height: none; overflow: visible; }
+    .portfolio-bento-card:nth-child(6) { min-height: 300px; max-height: none; overflow: visible; }
 
-      .portfolio-bento-card:nth-child(1) { min-height: 350px; }
-      .portfolio-bento-card:nth-child(2) { min-height: 350px; }
-      .portfolio-bento-card:nth-child(3) { min-height: 200px; }
-      .portfolio-bento-card:nth-child(4) { min-height: 600px; }
-      .portfolio-bento-card:nth-child(5) { min-height: 450px; }
-      .portfolio-bento-card:nth-child(6) { min-height: 300px; }
+    /* Quote — 60% centered */
+    .portfolio-bento-card:nth-child(7) {
+      grid-column: span 2;
+      width: 60%;
+      margin: 0 auto;
+      min-height: 100px;
+    }
+  }
 
-      /* Hide GitHub Activity */
-      .portfolio-bento-card:nth-child(7) { display: none; }
-
-      /* Quote — 60% centered */
-      .portfolio-bento-card:nth-child(8) {
-        grid-column: span 2;
-        width: 60%;
-        margin: 0 auto;
-        min-height: 100px;
-      }
+  /* ── Large Desktop (1280px+) ── */
+  @media (min-width: 1280px) {
+    .portfolio-bento-grid {
+      gap: 1.5rem;
+      padding: 0;
     }
 
-    /* ── Large Desktop (1280px+) ── */
-    @media (min-width: 1280px) {
-      .portfolio-bento-grid {
-        gap: 1.5rem;
-        padding: 0;
-      }
+    .portfolio-bento-card:nth-child(5) { min-height: 300px; }
+    .portfolio-bento-card:nth-child(6) { min-height: 300px; }
+    .portfolio-bento-card:nth-child(7) { min-height: 100px; }
 
-      /* Hide GitHub Activity */
-      .portfolio-bento-card:nth-child(7) { display: none; }
+    /* Quote — 50% centered */
+    .portfolio-bento-card:nth-child(7) {
+      grid-column: span 2;
+      width: 50%;
+      margin: 0 auto;
+      min-height: 100px;
+    }
+  }
 
-      /* Quote — 50% centered */
-      .portfolio-bento-card:nth-child(8) {
-        grid-column: span 2;
-        width: 50%;
-        margin: 0 auto;
-        min-height: 100px;
-      }
+  ${
+    enableBorderGlow
+      ? `
+    .portfolio-bento-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      background: radial-gradient(
+        var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+        rgba(${glowColor}, calc(var(--glow-intensity) * 0.8)) 0%,
+        rgba(${glowColor}, calc(var(--glow-intensity) * 0.4)) 30%,
+        transparent 60%
+      );
+      border-radius: inherit;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      z-index: 1;
     }
 
-    ${
-      enableBorderGlow
-        ? `
-      .portfolio-bento-card::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        padding: 2px;
-        background: radial-gradient(
-          var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-          rgba(${glowColor}, calc(var(--glow-intensity) * 0.8)) 0%,
-          rgba(${glowColor}, calc(var(--glow-intensity) * 0.4)) 30%,
-          transparent 60%
-        );
-        border-radius: inherit;
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        mask-composite: exclude;
-        pointer-events: none;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-        z-index: 1;
-      }
-
-      .portfolio-bento-card:hover::after {
-        opacity: 1;
-      }
+    .portfolio-bento-card:hover::after {
+      opacity: 1;
+    }
     `
-        : ""
-    }
+      : ""
+  }
   `}
       </style>
 
@@ -398,6 +393,7 @@ export default function PortfolioBento({
                   enableTilt={enableTilt}
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
+                  overflowVisible={childOverflowVisible.includes(index)}
                 >
                   {child}
                 </ParticleCard>

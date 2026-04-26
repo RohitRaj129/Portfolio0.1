@@ -63,7 +63,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         className="relative w-full overflow-hidden"
       >
         <Image
-          src={project.thumbnail}
+          src={isDark ? project.thumbnail_dark : project.thumbnail_light}
           alt={project.name}
           fill
           className="object-cover"

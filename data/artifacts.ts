@@ -7,7 +7,8 @@ export const projects: Project[] = [
     description:
       "The TubeBoost boilerplate includes a range of features, from AI-powered content generation to thumbnail creation, trending keyword detection, and more. With its scalable architecture and robust toolset, TubeBoost is the perfect starting point for building custom applications that integrate AI, data analysis, and content creation.",
     demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail: "/projects/tube_boost.png",
+    thumbnail_dark: "/projects/tubeboost.png",
+    thumbnail_light: "/projects/tubeboost_light.png",
     liveUrl: "https://tubeboost-nine.vercel.app/",
     githubUrl: "https://github.com/RohitRaj129/TubeBoost",
     technologies: [
@@ -26,7 +27,8 @@ export const projects: Project[] = [
     description:
       "A collection of production-ready applications built with modern full-stack architecture, scalable backend systems, AI integrations, and performance-optimized frontend experiences.",
     demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail: "/projects/portfolio.png",
+    thumbnail_dark: "/projects/portfolio.png",
+    thumbnail_light: "/projects/portfolio_light.png",
     liveUrl: "https://www.rohitraj.me",
     githubUrl: "https://github.com/RohitRaj129/Portfolio0.1",
     technologies: [
@@ -45,7 +47,8 @@ export const projects: Project[] = [
     description:
       "A modern movie exploration and booking platform featuring trailer previews, dynamic content from TMDB API, and seamless ticket booking with secure payment integration.",
     demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail: "/projects/bingeit.png",
+    thumbnail_dark: "/projects/bingeit.png",
+    thumbnail_light: "/projects/bingeit_light.png",
     liveUrl: "#",
     githubUrl: "https://github.com/RohitRaj129/BingeIt",
     technologies: [
@@ -64,7 +67,8 @@ export const projects: Project[] = [
     description:
       "AI-driven hiring assistant that automates resume screening, candidate evaluation, and shortlisting to streamline the recruitment process.",
     demoVideo: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail: "/projects/ai_recruiter.png",
+    thumbnail_dark: "/projects/ai_recruiter.png",
+    thumbnail_light: "/projects/ai_recruiter_light.png",
     liveUrl: "#",
     githubUrl: "https://github.com/RohitRaj129/AI-Recruiter",
     technologies: [

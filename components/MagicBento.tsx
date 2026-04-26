@@ -5,7 +5,6 @@ import Intro from "@/app/sections/introduction/Intro";
 import ArtifactVault from "@/app/sections/projects/ArtifactVault";
 import SkillsInventory from "@/app/sections/skills/SkillsInventory";
 import AboutMe from "@/app/sections/About/AboutMe";
-import GithubActivity from "@/app/sections/footer/GithubActivity";
 import Quote from "@/app/sections/footer/Quote";
 import ProfileCard from "@/app/sections/hero/ProfileCard";
 
@@ -46,7 +45,7 @@ const cardData: BentoCardProps[] = [
   { color: "#060010", content: <ArtifactVault />, minHeight: "400px" },
   { color: "#060010", content: <SkillsInventory />, minHeight: "350px" },
   { color: "#060010", content: <AboutMe /> },
-  { color: "#060010", content: <GithubActivity /> },
+  // { color: "#060010", content: <GithubActivity /> },
   { color: "#060010", content: <Quote /> },
 ];
 
@@ -104,6 +103,7 @@ const ParticleCard: React.FC<{
   enableTilt?: boolean;
   clickEffect?: boolean;
   enableMagnetism?: boolean;
+  overflowVisible?: boolean;
 }> = ({
   children,
   className = "",
@@ -114,6 +114,7 @@ const ParticleCard: React.FC<{
   enableTilt = true,
   clickEffect = false,
   enableMagnetism = false,
+  overflowVisible = false,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement[]>([]);
@@ -349,8 +350,8 @@ const ParticleCard: React.FC<{
   return (
     <div
       ref={cardRef}
-      className={`${className} relative overflow-hidden`}
-      style={{ ...style, position: "relative", overflow: "hidden" }}
+      className={`${className} relative ${overflowVisible ? "" : "overflow-hidden"}`}
+      style={{ ...style, position: "relative", overflow: overflowVisible ? "visible" : "hidden" }}
     >
       {children}
     </div>
