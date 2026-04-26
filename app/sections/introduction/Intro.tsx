@@ -1,6 +1,7 @@
 "use client";
 import Splash3dButton from "@/components/3d-splash-button";
 import { RippleButton } from "@/components/ui/ripple-button";
+import Sheet from "@/components/ui/native-swipeable-sheets";
 import {
   FileText,
   Github,
@@ -26,6 +27,7 @@ type Props = {};
 function Intro({}: Props) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -85,7 +87,7 @@ function Intro({}: Props) {
               </Splash3dButton>
             </Link>
             <Link href="#">
-              <Splash3dButton>
+              <Splash3dButton onClick={() => setSheetOpen(true)}>
                 <Send className="p-1" />
                 <p
                   className="text-sm"
@@ -96,6 +98,26 @@ function Intro({}: Props) {
               </Splash3dButton>
             </Link>
           </div>
+          <Sheet
+            open={sheetOpen}
+            close={() => setSheetOpen(false)}
+            title="Get in Touch"
+          >
+            <div className="flex flex-col items-center justify-center gap-6 p-8 text-center">
+              <h2 className="text-2xl font-bold" style={{ fontFamily: "var(--font-syne)" }}>
+                Get in Touch
+              </h2>
+              <p className="text-muted-foreground">
+                Feel free to reach out for collaborations or just a friendly chat.
+              </p>
+              <Link
+                href="mailto:rohitraj289@gmail.com"
+                className="rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground hover:opacity-90"
+              >
+                Send Email
+              </Link>
+            </div>
+          </Sheet>
           <div className="mt-2 flex gap-2">
             <Link href={"https://github.com/RohitRaj129"} target="_blank">
               <Tooltip>
