@@ -140,7 +140,7 @@ function Intro({}: Props) {
                 </TooltipContent>
               </Tooltip>
             </Link>
-            <Link
+            {/* <Link
               href={"https://www.instagram.com/raj_rohit_19/"}
               target="_blank"
             >
@@ -152,7 +152,7 @@ function Intro({}: Props) {
                   <p style={{ fontFamily: "var(--font-syne)" }}>Instagram</p>
                 </TooltipContent>
               </Tooltip>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
