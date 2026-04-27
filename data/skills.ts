@@ -76,7 +76,7 @@ export const skillsData = {
       "SQL",
       "Python",
       "C",
-      // "Java",
+      "Java",
     ],
   },
   Frontend: {
@@ -122,8 +122,8 @@ export const skillsData = {
       "Postman",
     ],
   },
-  Languages: {
-    desc: "Coding and spoken languages.",
-    skills: ["English", "Hindi"],
-  },
+  // Languages: {
+  //   desc: "Coding and spoken languages.",
+  //   skills: ["English", "Hindi"],
+  // },
 };
