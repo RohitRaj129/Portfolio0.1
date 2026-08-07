@@ -72,7 +72,7 @@ function Intro({}: Props) {
           </div>
           <div className="flex gap-3">
             <Link
-              href="https://drive.google.com/file/d/1wHiyE651RFUNI3vgK7d-yHRIHuqKiESu/view"
+              href="https://drive.google.com/file/d/19ngWOoAnKij-8vBcqACiXXtlShf4U4Nu/view"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -104,11 +104,15 @@ function Intro({}: Props) {
             title="Get in Touch"
           >
             <div className="flex flex-col items-center justify-center gap-6 p-8 text-center">
-              <h2 className="text-2xl font-bold" style={{ fontFamily: "var(--font-syne)" }}>
+              <h2
+                className="text-2xl font-bold"
+                style={{ fontFamily: "var(--font-syne)" }}
+              >
                 Get in Touch
               </h2>
               <p className="text-muted-foreground">
-                Feel free to reach out for collaborations or just a friendly chat.
+                Feel free to reach out for collaborations or just a friendly
+                chat.
               </p>
               <Link
                 href="mailto:rohitraj289@gmail.com"
