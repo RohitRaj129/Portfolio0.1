@@ -91,7 +91,6 @@ export const skillsData = {
       "GSAP",
       "Shadcn UI",
       "Figma",
-      "Storybook",
       "Vite",
     ],
   },
